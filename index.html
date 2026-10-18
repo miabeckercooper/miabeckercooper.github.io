@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Mia Becker-Cooper · Engineer turned finance professional</title>
+    <meta name="description" content="Mia Becker-Cooper: mechanical engineer turned finance professional. Risk tools for 30 client portfolios at ANDBank Monaco, MSc Finance at ESADE (8.5/10), CEMS MIM at CBS. 11 projects with live models." />
+    <meta name="theme-color" content="#0C171D" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="canonical" href="%VITE_SITE_URL%" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Mia Becker-Cooper · Decompose. Model. Stress-test. Decide." />
+    <meta property="og:description" content="Mechanical engineer turned finance professional. Wealth management, private equity, venture capital and hedge funds." />
+    <meta property="og:url" content="%VITE_SITE_URL%" />
+    <meta property="og:image" content="%VITE_SITE_URL%og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Trading floor of six candlestick towers with the headline Decompose. Model. Stress-test. Decide." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="%VITE_SITE_URL%og.png" />
+    <script>
+      (function () {
+        try { var t = localStorage.getItem("mbc-theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+        var h = document.documentElement, q = new URLSearchParams(location.search).get("mode"), gl = false;
+        h.classList.add("js");
+        try { var c = document.createElement("canvas"); gl = !!(c.getContext("webgl2") || c.getContext("webgl")); } catch (e) {}
+        var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (gl && (q === "3d" || (q !== "2d" && !still))) h.classList.add("mode-3d");
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"><!--app--></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

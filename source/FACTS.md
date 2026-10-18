@@ -55,3 +55,23 @@ Excel (modelling, Power Query, VBA), Python (pandas, scikit-learn, hmmlearn), SQ
 11 Two-week futures trading challenge (Derivatives, Feb 2026, Group 6). 4th place. 100,000 → 113,396.63, +13.40%, max DD −27.10%, ES/MES/NQ/MNQ, gold, silver, FX; EMA pullback and failed-breakout setups; ≥2:1 R.
 Not published / do not mention as public: thesis & defence deck (pending), Search Fund deck (not Mia's work), Thales pitch (origin unclear).
 Coming later: Strata Intelligence Ventures VC fund PPM (Mia owned exit strategy & portfolio involvement).
+
+## Website decisions (confirmed by Mia, Oct 2026)
+- Site headline: "Decompose. Model. Stress-test. Decide." (option C). Her own phrasing "Markets are the most interesting machine I've taken apart." stays as the lede.
+- Email may be shown on the site: mia.beckercooper@alumni.esade.edu.
+- Publish straight to main at each milestone.
+
+## Appendix A: IAG DCF sensitivity grid (value per share, €; copied verbatim from prototype/v4-reference.html GRID, confirmed by Mia)
+Share price €4.60. Base case WACC 7.2%, g 2.0% → €10.17.
+
+| WACC \ g | 1.0% | 1.5% | 2.0% | 2.5% | 3.0% |
+|---|---|---|---|---|---|
+| 5.5% | 14.94 | 15.75 | 16.79 | 18.16 | 20.07 |
+| 6.0% | 12.95 | 13.52 | 14.24 | 15.15 | 16.36 |
+| 6.5% | 11.33 | 11.74 | 12.24 | 12.87 | 13.66 |
+| 7.0% | 9.98 | 10.28 | 10.64 | 11.08 | 11.62 |
+| 7.2% | 9.57 | 9.85 | 10.17 | 10.56 | 11.03 |
+| 7.5% | 8.85 | 9.07 | 9.33 | 9.64 | 10.01 |
+| 8.0% | 7.89 | 8.05 | 8.24 | 8.46 | 8.72 |
+| 8.5% | 7.06 | 7.18 | 7.32 | 7.48 | 7.66 |
+| 9.0% | 6.35 | 6.44 | 6.54 | 6.65 | 6.78 |
