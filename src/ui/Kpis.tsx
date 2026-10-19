@@ -11,8 +11,7 @@ function Counter({ k, delay }: { k: Kpi; delay: number }) {
   useEffect(() => {
     if (done.current || prefersReducedMotion()) return;
     done.current = true;
-    let raf = 0;
-    let t0 = 0;
+    let raf = 0, t0 = 0;
     const tick = (ts: number) => {
       if (!t0) t0 = ts + delay;
       const p = Math.max(0, Math.min(1, (ts - t0) / 1200));
@@ -23,17 +22,15 @@ function Counter({ k, delay }: { k: Kpi; delay: number }) {
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [k, delay]);
-  return (
-    <b aria-hidden="true">{fmt(k, v)}</b>
-  );
+  return <b aria-hidden="true">{fmt(k, v)}</b>;
 }
 
-export function Kpis({ items, delay = 0 }: { items: Kpi[]; delay?: number }) {
+export function Kpis({ items }: { items: Kpi[] }) {
   return (
-    <ul className="kpis">
+    <ul className="figures">
       {items.map((k, i) => (
-        <li className="kpi" key={k.label}>
-          <Counter k={k} delay={delay + i * 120} />
+        <li key={k.label}>
+          <Counter k={k} delay={300 + i * 140} />
           <span className="sr-only">{fmt(k, k.value)} </span>
           <span>{k.label}</span>
         </li>

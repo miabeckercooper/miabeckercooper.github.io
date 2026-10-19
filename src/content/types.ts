@@ -17,23 +17,29 @@ export type Kpi = {
   label: string;
 };
 
-export type Emblem = "gear" | "discs" | "screens" | "bars" | "vault" | "globe";
+export type ChapterColour = "cobalt" | "raspberry" | "forest" | "tangerine";
 
-export type Station = {
-  n: string;
-  short: string;
+export type Moment = {
+  date: string;
   title: string;
-  role: string;
-  dates: string;
+  body?: string;
+  metric?: string;
+  metricLabel?: string;
+  /** Project number in projects[] that this moment opens. */
+  project?: string;
+  /** Marks the MSc thesis moment (private files, access on request). */
+  thesis?: boolean;
+};
+
+export type Chapter = {
+  id: string;
+  colour: ChapterColour;
   place: string;
-  emblem: Emblem;
-  /** Marks the two bigger career jumps. */
-  jump?: string;
-  metric: { value: string; label: string };
-  points: string[];
-  chips: string[];
-  /** Section id the panel links to for proof. */
-  proof?: { label: string; href: string };
+  title: string;
+  dates: string;
+  summary: string;
+  photo?: { name: string; alt: string };
+  moments: Moment[];
 };
 
 export type MethodStep = {

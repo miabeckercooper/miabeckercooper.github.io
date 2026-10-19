@@ -43,7 +43,7 @@ export function MonteCarlo() {
     xs.forEach((s) => { const b = Math.floor(((s - lo) / (hi - lo)) * bins); if (b >= 0 && b < bins) counts[b]++; });
     const max = Math.max(...counts, 1);
     const dim = cssVar("--ink-2"), acc = cssVar("--accent"), brass = cssVar("--brass"), loss = cssVar("--loss"), rule = cssVar("--rule");
-    ctx.font = "11px 'JetBrains Mono Variable', monospace";
+    ctx.font = "12px 'Hanken Grotesk Variable', sans-serif";
     ctx.lineWidth = 1;
     [40, 60, 80, 100, 120, 140].forEach((v) => {
       ctx.strokeStyle = rule; ctx.beginPath(); ctx.moveTo(X(v), T); ctx.lineTo(X(v), h - B); ctx.stroke();

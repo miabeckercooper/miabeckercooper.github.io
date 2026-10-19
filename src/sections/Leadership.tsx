@@ -1,57 +1,32 @@
 import { leadership as L } from "../content/cv";
+import { Photo } from "../ui/Photo";
+import { Queen } from "../ui/Queen";
 
 export function Leadership() {
   return (
-    <section className="band" id="leadership" aria-labelledby="lead-title">
+    <section className="block" id="leadership" aria-labelledby="lead-title">
       <div className="wrap">
-        <div className="sec-head">
+        <p className="kicker">{L.label}</p>
+        <h2 className="section-title" id="lead-title">{L.title}</h2>
+        <div className="lead-grid">
+          <div className="queen"><Queen /></div>
           <div>
-            <p className="label">{L.label}</p>
-            <h2 id="lead-title">{L.title}</h2>
+            <p className="section-intro" style={{ marginTop: 0 }}>{L.intro}</p>
+            <div className="lead-photo" style={{ marginTop: 24 }}>
+              <Photo name="cems-group" alt="Group photo of students at a CEMS event at Copenhagen Business School" sizes="(max-width: 860px) 92vw, 680px" width={2048} height={1536} />
+            </div>
+            <p>CEMS community at Copenhagen Business School.</p>
           </div>
         </div>
-        <div className="cols">
-          <div>
-            <h3 className="col-title">Leadership</h3>
-            <ul className="entries">
-              {L.roles.map((r) => (
-                <li key={r.title}>
-                  <h4>{r.title}</h4>
-                  <p className="meta">{[r.org, r.dates].filter(Boolean).join(" · ")}</p>
-                  {r.body && <p>{r.body}</p>}
-                </li>
-              ))}
-            </ul>
-            <h3 className="col-title" style={{ marginTop: 24 }}>Languages</h3>
-            <dl className="langs">
-              {L.languages.map((l) => (
-                <div key={l.name}><dt>{l.name}</dt><dd>{l.level}</dd></div>
-              ))}
-            </dl>
-          </div>
-          <div>
-            <h3 className="col-title">Education</h3>
-            <ul className="entries">
-              {L.education.map((r) => (
-                <li key={r.title}>
-                  <h4>{r.title}</h4>
-                  <p className="meta">{r.org} · {r.dates}</p>
-                  <p>{r.body}</p>
-                </li>
-              ))}
-            </ul>
-            <h3 className="col-title" style={{ marginTop: 24 }}>Skills</h3>
-            <dl className="skills">
-              {L.skills.map((s) => (
-                <div key={s.group}><dt>{s.group}</dt><dd>{s.items}</dd></div>
-              ))}
-            </dl>
-            <h3 className="col-title" style={{ marginTop: 24 }}>Certifications</h3>
-            <ul className="certs">
-              {L.certifications.map((c) => <li key={c}>{c}</li>)}
-            </ul>
-          </div>
-        </div>
+        <ul className="roles">
+          {L.roles.map((r) => (
+            <li key={r.title}>
+              <h3>{r.title}</h3>
+              <p className="meta">{[r.org, r.dates].filter(Boolean).join(" · ")}</p>
+              {r.body && <p>{r.body}</p>}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

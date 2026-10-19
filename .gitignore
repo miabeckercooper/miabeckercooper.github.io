@@ -4,3 +4,4 @@ public/shots
 test-results
 playwright-report
 .lighthouse
+public/photos

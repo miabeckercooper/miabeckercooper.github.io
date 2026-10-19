@@ -11,12 +11,11 @@ const browser = await chromium.launch({
   executablePath: process.env.PW_CHROMIUM ?? "/opt/pw-browsers/chromium-1194/chrome-linux/chrome",
   args: ["--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"],
 });
-const page = await browser.newPage({ viewport: { width: 1200, height: 686 }, deviceScaleFactor: 1 });
-await page.goto(`${url}?mode=3d`);
-await page.locator("section.walk3d canvas").waitFor({ timeout: 30_000 });
-await page.addStyleTag({ content: ".walknav, .walk-skip, .btns, .lede { display: none !important; }" });
-await page.waitForTimeout(16_000); // let the opening bell finish under software WebGL
-await page.screenshot({ path: resolve(root, "public/og.png"), clip: { x: 0, y: 56, width: 1200, height: 630 } });
+const page = await browser.newPage({ viewport: { width: 1200, height: 694 }, deviceScaleFactor: 1, reducedMotion: "reduce" });
+await page.goto(url);
+await page.addStyleTag({ content: ".btns, .lede, .eyebrow { display: none !important; } .hero { padding-top: 24px; } .hero h1 { font-size: 5.4rem; }" });
+await page.waitForTimeout(1500);
+await page.screenshot({ path: resolve(root, "public/og.png"), clip: { x: 0, y: 64, width: 1200, height: 630 } });
 const icon = await browser.newPage({ viewport: { width: 180, height: 180 } });
 await icon.goto(`${url}favicon.svg`);
 await icon.screenshot({ path: resolve(root, "public/apple-touch-icon.png") });

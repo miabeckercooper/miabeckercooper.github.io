@@ -3,37 +3,34 @@
  * scripts/check-facts.ts fails the build if a number here is not in FACTS.md.
  * Missing facts are written as { todo: "..." } and render as a visible TODO.
  */
-import type { BacktestVariant, Kpi, MethodStep, Project, ProjectArea, Station, Text } from "./types";
+import type { BacktestVariant, Chapter, Kpi, MethodStep, Project, ProjectArea, Text } from "./types";
 
 export const GITHUB_PROJECTS = "https://github.com/miabeckercooper/finance-portfolio/tree/main/";
 
 export const identity = {
   name: "Mia Becker-Cooper",
   monogram: "MBC",
-  tickerNote: "Available summer 2027",
-  eyebrow: "Mechanical engineer · Finance · Copenhagen & Barcelona",
+  eyebrow: "Mechanical engineer turned finance professional, Copenhagen & Barcelona",
   headline: ["Decompose.", "Model.", "Stress-test.", "Decide."],
   lede:
     "Markets are the most interesting machine I've taken apart. I trained as a mechanical engineer at Bristol, moved into finance at ESADE, and build the tools behind investment decisions: risk workbooks, valuations and systematic backtests.",
   targets: ["Wealth management", "Private equity", "Venture capital", "Hedge funds"],
-  based: "Copenhagen and Barcelona",
-  nationality: "German, EU work permit",
   availability: "Available summer 2027",
   linkedin: "https://www.linkedin.com/in/miabecker-cooper/",
   github: "https://github.com/miabeckercooper",
   projects: "https://github.com/miabeckercooper/finance-portfolio",
   email: "mia.beckercooper@alumni.esade.edu",
   cv: "Mia_Becker-Cooper_CV.pdf",
-  metaDescription:
-    "Mia Becker-Cooper: mechanical engineer turned finance professional. Risk tools for 30 client portfolios at ANDBank Monaco, MSc Finance at ESADE (8.5/10), CEMS MIM at CBS. 11 projects with live models.",
+  photo: { name: "portrait-hallway", alt: "Mia Becker-Cooper, arms crossed, in a bright white hallway" },
+  photoTag: { value: "30", label: "client portfolios, ANDBank Monaco" },
 };
 
 export const nav = [
-  { label: "Career", href: "#career" },
-  { label: "Method", href: "#method" },
+  { label: "Timeline", href: "#timeline" },
   { label: "Models", href: "#models" },
-  { label: "Deals", href: "#deals" },
-  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Leadership", href: "#leadership" },
+  { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -44,120 +41,102 @@ export const kpis: Kpi[] = [
   { value: 8.5, decimals: 1, suffix: "/10", label: "MSc in Finance, ESADE" },
 ];
 
-export const walkCopy = {
-  label: "Career walk",
-  title: "Six stations, engineering to finance",
-  hint: "Scroll, swipe or tap a tower. Each candle is a step up.",
-  skip: "Skip the tour",
-  start: "Walk my career",
-  models: "Play with my models",
-  prev: "Previous station",
-  next: "Next station",
-  overview: "Overview",
-};
-
-export const stations: Station[] = [
-  {
-    n: "01",
-    short: "BEng",
-    title: "BEng Mechanical Engineering",
-    role: "Undergraduate",
-    dates: "Sep 2021 – Jul 2024",
-    place: "University of Bristol",
-    emblem: "gear",
-    metric: { value: "Award", label: "Inspiring Engineering Student Award" },
-    points: [
-      "Individual thesis: an Arduino-based system measuring mastication performance. The results were used in my tutor's PhD research.",
-      "Led a 4-person team on a go-to-market case for a smart gum shield.",
-    ],
-    chips: ["Systems thinking", "MATLAB", "Prototyping", "Team lead"],
-  },
-  {
-    n: "02",
-    short: "ESADE",
-    title: "MSc in Finance",
-    role: "Banking & Asset Management track",
-    dates: "Aug 2025 – Jun 2026",
-    place: "ESADE, Ramon Llull University · Barcelona",
-    emblem: "discs",
-    jump: "Big jump: engineering to finance",
-    metric: { value: "8.5/10", label: "final grade" },
-    points: [
-      "Corporate Valuation, Advanced Financial Modelling (three-statement, LBO, IRR/MOIC), Venture Capital, Asset Management, Asset Pricing, Derivatives, Fixed Income, Hedge Funds and Fintech.",
-      "Plus Investing in Capital Markets at the University of St. Gallen (Jan 2026).",
-    ],
-    chips: ["DCF", "LBO", "Asset pricing", "Derivatives", "Fixed income"],
-    proof: { label: "See the projects", href: "#deals" },
-  },
-  {
-    n: "03",
-    short: "Markets",
-    title: "Markets & valuation",
-    role: "Two trading challenges, IAG and Nike",
-    dates: "Feb – Mar 2026",
-    place: "ESADE · Barcelona",
-    emblem: "screens",
-    metric: { value: "+3.1 pp", label: "vs the B500 benchmark, Bloomberg Trading Challenge" },
-    points: [
-      "Futures trading challenge: 4th place, +13.40% in two weeks. Bloomberg challenge: €100M book, +0.695% against −2.4% for the benchmark.",
-      "IAG: BUY, target €8.07 against a €4.60 share price (+75%). Nike: valued the management case at $69.05 against an activist.",
-    ],
-    chips: ["Bloomberg", "Futures", "DCF", "Monte Carlo"],
-    proof: { label: "Move the DCF inputs", href: "#models" },
-  },
-  {
-    n: "04",
-    short: "Substrate",
-    title: "Substrate Capital",
-    role: "Risk framework & methodology",
-    dates: "Jun 2026",
-    place: "Systematic 130/30 fund pitch · Asset Management",
-    emblem: "bars",
-    metric: { value: "0.84", label: "deflated Sharpe of the pitched variant (simulated)" },
-    points: [
-      "Random forest on 15 features ranking 58 AI-infrastructure names, with an HMM regime overlay.",
-      "I owned the risk framework and methodology: walk-forward testing, a 2-month embargo, 15 bps per side costs and a survivorship test.",
-    ],
-    chips: ["Risk framework", "Python", "HMM", "Backtesting"],
-    proof: { label: "Open the backtest lab", href: "#models" },
-  },
-  {
-    n: "05",
-    short: "ANDBank",
-    title: "ANDBank Monaco",
-    role: "Investment & Portfolio Risk Management Intern",
-    dates: "Jun – Aug 2026",
-    place: "Private banking & wealth management · Monaco",
-    emblem: "vault",
-    jump: "Big jump: classroom to live client books",
-    metric: { value: "30", label: "client portfolios measured in the risk workbook I built" },
-    points: [
-      "Built a TWR-based risk workbook (Sharpe, Sortino, VaR/CVaR, beta, tracking error, information ratio, max drawdown) and corrected a benchmark mismatch.",
-      "AI-assisted automation of Bloomberg and Excel reporting cut prep time by ~95%. My dashboard scaled from 1 to 4 portfolio managers.",
-    ],
-    chips: ["Excel / VBA", "Power Query", "Bloomberg", "VaR / CVaR"],
-    proof: { label: "Read the experience", href: "#experience" },
-  },
-  {
-    n: "06",
-    short: "CEMS",
-    title: "Thesis 85% · CEMS at CBS",
-    role: "CEMS Master's in International Management",
-    dates: "Sep 2026 – Jul 2027",
-    place: "ESADE & Copenhagen Business School",
-    emblem: "globe",
-    metric: { value: "85%", label: "in-company thesis with ANDBank: AI Implementation & Adoption in Private Banking" },
-    points: [
-      "Head of Finance, Women in Finance at CBS: budget, sponsorships and industry events.",
-      "CEMS Corporate & Alumni Team: launched and led a mentorship programme pairing up to 20 students with alumni.",
-    ],
-    chips: ["Research", "AI in finance", "Leadership", "CEMS MIM"],
-    proof: { label: "Leadership and education", href: "#leadership" },
-  },
+/** Scrolling highlights band under the hero. */
+export const ticker = [
+  "ANDBank Monaco ▲ 30 client portfolios",
+  "Reporting prep ▼ ~95%",
+  "Substrate Capital ▲ deflated Sharpe 0.84 (simulated)",
+  "IAG ▲ BUY, target €8.07",
+  "Nike ▲ management case $69.05",
+  "Futures challenge ▲ +13.40%, 4th place",
+  "Bloomberg challenge ▲ +3.1 pp vs benchmark",
+  "MSc thesis ▲ 85%",
 ];
 
-/** Globe pins for station 06. */
-export const places = ["Bristol", "Barcelona", "Monaco", "Copenhagen"];
+/* ---------------- Timeline: four chapters ---------------- */
+
+export const timeline = {
+  label: "Timeline",
+  title: "From engineering to the trading desk",
+  intro: "Four chapters. Swipe through each one; tap a project to see the actual work.",
+};
+
+export const thesis = {
+  title: "AI Implementation & Adoption in Private Banking",
+  grade: "85%",
+  context: "MSc in Finance thesis, ESADE. In-company with ANDBank, Jun–Aug 2026.",
+  access: "The full thesis and defence deck are shared privately with recruiters on request.",
+  request: "Request access",
+};
+
+export const chapters: Chapter[] = [
+  {
+    id: "bristol",
+    colour: "cobalt",
+    place: "University of Bristol",
+    title: "BEng Mechanical Engineering",
+    dates: "Sep 2021 – Jul 2024",
+    summary: "Where I learned to take systems apart and understand why they work, or why they fail.",
+    moments: [
+      { date: "2021–2024", title: "BEng Mechanical Engineering", body: "Inspiring Engineering Student Award." },
+      { date: "Team project", title: "Led a go-to-market case", body: "Led a 4-person team on a go-to-market case for a smart gum shield." },
+      { date: "Individual thesis", title: "Built a measurement system", body: "An Arduino-based system measuring mastication performance. The results were used in my tutor's PhD research." },
+      { date: "2023–24", title: "Volunteer, Wild Goose Shelter", body: "Volunteering at a homeless shelter in Bristol alongside my degree." },
+    ],
+  },
+  {
+    id: "esade",
+    colour: "raspberry",
+    place: "ESADE, Barcelona",
+    title: "MSc in Finance",
+    dates: "Aug 2025 – Jun 2026",
+    summary:
+      "Banking & Asset Management track, graded 8.5/10. Eleven projects, two trading challenges and an in-company thesis with ANDBank.",
+    moments: [
+      { date: "Nov 2025", title: "Private client portfolio", metric: "1.117", metricLabel: "Sharpe vs 0.836", project: "08" },
+      { date: "Nov 2025", title: "Central banks: Fed vs ECB", body: "A comparison of the Federal Reserve and the European Central Bank.", project: "10" },
+      { date: "Jan 2026", title: "University of St. Gallen", body: "Investing in Capital Markets: a CHF 500M Swiss single-family office.", project: "09" },
+      { date: "Feb 2026", title: "Futures trading challenge", metric: "+13.40%", metricLabel: "in two weeks, 4th place", project: "11" },
+      { date: "Mar 2026", title: "Bloomberg Trading Challenge", metric: "+3.1 pp", metricLabel: "vs the B500 benchmark on a €100M book", project: "02" },
+      { date: "Mar 2026", title: "IAG equity valuation", metric: "€8.07", metricLabel: "BUY target vs €4.60 (+75%)", project: "03" },
+      { date: "Mar 2026", title: "Nike activist valuation", metric: "$69.05", metricLabel: "management case vs $52.40", project: "04" },
+      { date: "Jun 2026", title: "Substrate Capital", metric: "0.84", metricLabel: "deflated Sharpe, systematic 130/30 (simulated)", project: "01" },
+      { date: "Jun–Aug 2026", title: "MSc thesis with ANDBank", metric: "85%", metricLabel: "AI Implementation & Adoption in Private Banking", thesis: true },
+    ],
+  },
+  {
+    id: "andbank",
+    colour: "forest",
+    place: "ANDBank Monaco",
+    title: "Investment & Portfolio Risk Management Intern",
+    dates: "Jun – Aug 2026",
+    summary: "Private banking and wealth management: from classroom models to live client books. No client names, holdings or internal files are shown.",
+    moments: [
+      { date: "Risk", title: "TWR-based risk workbook", metric: "30", metricLabel: "client portfolios: Sharpe, Sortino, VaR/CVaR, beta, tracking error, information ratio, max drawdown" },
+      { date: "Methodology", title: "Fixed a benchmark mismatch", body: "An S&P 500 benchmark against an HICP+3% mandate. Aligned VaR/CVaR confidence levels and wrote the methodology document." },
+      { date: "Dashboard", title: "Automated portfolio dashboard", metric: "1 → 4", metricLabel: "portfolio managers using it, with a potential bank-wide rollout" },
+      { date: "Automation", title: "AI-assisted reporting", metric: "~95%", metricLabel: "less prep time. Built Hermes, a morning market-update system, and a 16-skill custom AI library" },
+      { date: "Exposure", title: "Concentration analysis", metric: "10", metricLabel: "client portfolio reviews supported, with correlation matrices and asset-class and geography breakdowns" },
+      { date: "Research", title: "Screens and structured products", body: "An equity screen scoring 50+ securities on momentum, value and growth; alternatives benchmarked against HFR indices; a coupon tracker for worst-of autocallables." },
+    ],
+  },
+  {
+    id: "cbs",
+    colour: "tangerine",
+    place: "Copenhagen Business School",
+    title: "CEMS Master's in International Management",
+    dates: "Sep 2026 – Jul 2027",
+    summary: "ESADE & CBS. Building AI Business Ventures in Digital Ecosystems; Entrepreneurship: Theory and Evidence; Negotiations in a Global Context.",
+    photo: { name: "cems-group", alt: "Group photo of students at a CEMS event at Copenhagen Business School" },
+    moments: [
+      { date: "Sep 2026", title: "CEMS MIM begins", body: "Core: Negotiations in a Global Context, Financial Analysis, AI & Machine Learning, Data Analytics." },
+      { date: "Sep 2026 – now", title: "Head of Finance, Women in Finance", body: "Budget, sponsorships and industry events at CBS." },
+      { date: "2026", title: "CEMS Corporate & Alumni Team", metric: "Up to 20", metricLabel: "students paired with alumni in the mentorship programme I launched and led" },
+      { date: "2026", title: "VC and PE clubs", body: "Member of the CBS Venture Capital Club and Private Equity Club." },
+      { date: "Jul 2027", title: "Graduation", body: "Available summer 2027." },
+    ],
+  },
+];
 
 export const method = {
   label: "How I work",
@@ -460,39 +439,12 @@ export const projects: Project[] = [
   },
 ];
 
-/* ---------------- Experience ---------------- */
-
-export const experience = {
-  label: "Experience",
-  title: "On the desk",
-  firm: "ANDBank Monaco",
-  role: "Investment & Portfolio Risk Management Intern",
-  dates: "Jun – Aug 2026",
-  sector: "Private banking & wealth management",
-  stack: "Excel · VBA · Power Query · Bloomberg",
-  drawingNo: "MBC-05",
-  points: [
-    "Built a TWR-based risk workbook measuring risk-adjusted performance across 30 client portfolios: Sharpe, Sortino, VaR/CVaR, beta, tracking error, information ratio and max drawdown.",
-    "Corrected a benchmark mismatch (S&P 500 against an HICP+3% mandate), aligned VaR/CVaR confidence levels and wrote the methodology document.",
-    "Built an automated portfolio dashboard (multi-period performance, top and worst holdings) that scaled from one portfolio manager to four, with a potential bank-wide rollout.",
-    "Concentration and exposure analysis across the PMs' books (correlation matrices, asset-class and geography breakdowns), supporting 10 client portfolio reviews.",
-    "An equity screen scoring 50+ securities on momentum, value and growth; benchmarked alternatives against HFR indices; decomposed structured products; built a coupon tracker for worst-of autocallables.",
-    "AI-assisted automation of Bloomberg and Excel reporting cut prep time by ~95%. Built Hermes, a morning market-update system, plus Power Query pipelines, a term-sheet automation tool and a 16-skill custom AI library.",
-  ],
-  metrics: [
-    { value: "30", label: "client portfolios in the workbook" },
-    { value: "~95%", label: "less reporting prep time" },
-    { value: "1 → 4", label: "portfolio managers using my dashboard" },
-    { value: "10", label: "client portfolio reviews supported" },
-  ],
-  privacy: "No client names, holdings or internal files are shown.",
-};
-
 /* ---------------- Leadership, education, skills ---------------- */
 
 export const leadership = {
-  label: "Leadership & education",
-  title: "Beyond the desk",
+  label: "Leadership",
+  title: "Leading from the front",
+  intro: "The queen is the piece that moves furthest in every direction. I try to lead the same way: take the first step, then bring people with me.",
   roles: [
     { title: "Head of Finance, Women in Finance", org: "Copenhagen Business School", dates: "Sep 2026 – present", body: "Budget, sponsorships and industry events." },
     { title: "CEMS Corporate & Alumni Team", org: "CEMS", dates: "2026", body: "Launched and led a mentorship programme pairing up to 20 students with alumni." },
@@ -524,6 +476,26 @@ export const leadership = {
     "Bloomberg Financial Fundamentals",
     "Bloomberg BQL",
     "AmplifyMe Asset Management Academy",
+  ],
+};
+
+export const about = {
+  label: "About me",
+  title: "Off the clock",
+  intro: "Engineer by training, investor by choice, and a few things that keep me sharp outside work.",
+  photo: { name: "headshot", alt: "Portrait of Mia Becker-Cooper" },
+  hobbies: [
+    { icon: "book", title: "Philosophy and politics", body: "Good training for questioning assumptions before trusting a model." },
+    { icon: "chess", title: "Chess", body: "Trying to beat my boyfriend, one game at a time." },
+    { icon: "dance", title: "Pilates and dance", body: "Discipline, balance and a reason to leave the spreadsheet." },
+    { icon: "heart", title: "Volunteering", body: "Homeless shelters, from the Wild Goose Shelter in Bristol onwards. I taught English in Nepal in 2017." },
+    { icon: "agent", title: "Building AI agents", body: "From Hermes, my morning market-update system, to a 16-skill custom AI library." },
+  ],
+  languages: [
+    { name: "English", level: "Native" },
+    { name: "French", level: "Fluent" },
+    { name: "German", level: "Intermediate" },
+    { name: "Spanish", level: "Learning" },
   ],
 };
 

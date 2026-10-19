@@ -8,15 +8,11 @@ const Lab = lazy(() => import("./Lab"));
 export function Models() {
   const [ref, seen] = useInView<HTMLDivElement>("600px 0px 600px 0px");
   return (
-    <section className="band" id="models" aria-labelledby="models-title">
+    <section className="block" id="models" aria-labelledby="models-title">
       <div className="wrap">
-        <div className="sec-head">
-          <div>
-            <p className="label">{models.label}</p>
-            <h2 id="models-title">{models.title}</h2>
-          </div>
-          <p>{models.intro}</p>
-        </div>
+        <p className="kicker">{models.label}</p>
+        <h2 className="section-title" id="models-title">{models.title}</h2>
+        <p className="section-intro">{models.intro}</p>
         <div ref={ref}>
           {seen ? (
             <Suspense fallback={<Placeholder />}>

@@ -57,7 +57,7 @@ export function GbmPaths() {
     const Y = (v: number) => T + (1 - (Math.log(Math.max(v, minV)) - Math.log(minV)) / (Math.log(maxV) - Math.log(minV))) * (h - T - B);
     const X = (i: number) => L + (i / STEPS) * (w - L - R);
     const dim = cssVar("--ink-2"), acc = cssVar("--accent"), brass = cssVar("--brass"), rule = cssVar("--rule"), ink = cssVar("--ink");
-    ctx.font = "11px 'JetBrains Mono Variable', monospace"; ctx.lineWidth = 1;
+    ctx.font = "12px 'Hanken Grotesk Variable', sans-serif"; ctx.lineWidth = 1;
     [25, 100, 400, 1600].forEach((v) => {
       ctx.strokeStyle = rule; ctx.beginPath(); ctx.moveTo(L, Y(v)); ctx.lineTo(w - R, Y(v)); ctx.stroke();
       ctx.fillStyle = dim; ctx.fillText(String(v), 4, Y(v) + 4);

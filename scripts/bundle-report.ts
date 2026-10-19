@@ -1,7 +1,7 @@
 /**
- * Gzipped size of every JS chunk in dist, grouped into: initial (loaded by index.html, plus its static imports),
- * the 3D walk chunk graph, and other lazy chunks. Fails if a budget is exceeded.
- * Budgets: initial ≤ 150 KB gz, 3D ≤ 450 KB gz.
+ * Gzipped size of every JS chunk in dist, grouped into: initial (loaded by index.html, plus its static imports)
+ * and lazy chunks. Fails if a budget is exceeded.
+ * Budget: initial ≤ 150 KB gz (the 3D walk was removed in the redesign).
  */
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
@@ -36,8 +36,6 @@ const groups = lazyRoots.map((r) => {
 });
 const kb = (s: Set<string> | string[]) => [...s].reduce((a, f) => a + gz(f), 0) / 1024;
 const initialKb = kb(initial);
-const three = groups.find((g) => /Walk3D/.test(g.root));
-const threeKb = three?.kb ?? 0;
 
 const lines = [
   "Bundle report (gzip -9)",
@@ -45,7 +43,7 @@ const lines = [
   `Initial JS: ${initialKb.toFixed(1)} KB  (budget 150 KB)`,
   ...[...initial].map((f) => `  ${f.padEnd(44)} ${(gz(f) / 1024).toFixed(1)} KB`),
   "",
-  ...groups.map((g) => [`Lazy: ${g.root} → ${g.kb.toFixed(1)} KB${g === three ? "  (3D, budget 450 KB)" : ""}`,
+  ...groups.map((g) => [`Lazy: ${g.root} → ${g.kb.toFixed(1)} KB`,
     ...g.files.map((f) => `  ${f.padEnd(44)} ${(gz(f) / 1024).toFixed(1)} KB`)].join("\n")),
   "",
   `All JS files: ${files.length}`,
@@ -56,6 +54,4 @@ writeFileSync(resolve(dist, "bundle-report.txt"), report + "\n");
 
 let fail = false;
 if (initialKb > 150) { console.error(`FAIL initial JS ${initialKb.toFixed(1)} KB > 150 KB`); fail = true; }
-if (!three) { console.error("FAIL could not find the 3D chunk"); fail = true; }
-else if (threeKb > 450) { console.error(`FAIL 3D chunk ${threeKb.toFixed(1)} KB > 450 KB`); fail = true; }
 if (fail) process.exit(1);

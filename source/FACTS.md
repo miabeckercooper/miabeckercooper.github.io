@@ -18,7 +18,7 @@ Sources: Mia's CV (source/cv/), final project reports (github.com/miabeckercoope
 ## Education
 - CEMS Master's in International Management (MIM), ESADE & Copenhagen Business School, Sep 2026 – Jul 2027. CBS courses: Building AI Business Ventures in Digital Ecosystems; Entrepreneurship: Theory and Evidence. Core: Negotiations in a Global Context, Financial Analysis, AI & Machine Learning, Data Analytics.
 - MSc in Finance, ESADE (Ramon Llull University), Banking & Asset Management track, grade 8.5/10, Aug 2025 – Jun 2026. Coursework: Corporate Valuation, Advanced Financial Modelling (three-statement, LBO, IRR/MOIC), Venture Capital, Asset Management, Asset Pricing, Derivatives, Fixed Income, Hedge Funds, Fintech. Also University of St. Gallen, Investing in Capital Markets (Jan 2026).
-- In-company thesis with ANDBank: AI Implementation & Adoption in Private Banking (Jun–Aug 2026), grade 85%. NOT yet cleared for public release (cover says CONFIDENTIAL); do not publish the thesis or defence deck until Mia confirms.
+- MSc thesis (ESADE MSc in Finance, not CEMS/CBS): in-company thesis with ANDBank, AI Implementation & Adoption in Private Banking (Jun–Aug 2026), grade 85%. Mia (Oct 2026): the thesis and defence deck may be shown ONLY on a private, access-controlled page shared with selected recruiters. Never on the public site or in the public repo.
 - BEng Mechanical Engineering, University of Bristol, Sep 2021 – Jul 2024. Inspiring Engineering Student Award. Led a 4-person team on a go-to-market case for a smart gum shield. Individual thesis: Arduino-based system measuring mastication performance; results used in her tutor's PhD research.
 - IB Diploma, International School of Nice (2021): HL Physics 7, Maths 6, Geography 7.
 
@@ -75,3 +75,15 @@ Share price €4.60. Base case WACC 7.2%, g 2.0% → €10.17.
 | 8.0% | 7.89 | 8.05 | 8.24 | 8.46 | 8.72 |
 | 8.5% | 7.06 | 7.18 | 7.32 | 7.48 | 7.66 |
 | 9.0% | 6.35 | 6.44 | 6.54 | 6.65 | 6.78 |
+
+## Profile and hobbies (Mia's own words, Oct 2026)
+- Reads philosophy and politics.
+- Chess: trying to beat her boyfriend.
+- Pilates and dance.
+- Volunteers at homeless shelters (see Wild Goose Shelter, Bristol, 2023–24).
+- Builds AI agents (see Hermes and the 16-skill AI library at ANDBank).
+
+## Photos (source/photos, supplied by Mia, Oct 2026)
+- portrait-hallway.jpg: Mia, arms crossed, white hallway. Hero.
+- headshot.jpg: Mia, plain white wall. Profile.
+- cems-group.jpg: group photo at a CEMS event at CBS (Mia's exact role at this event not stated; caption neutrally).

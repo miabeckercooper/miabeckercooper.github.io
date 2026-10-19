@@ -7,6 +7,7 @@ import { TextOrTodo } from "../ui/TextOrTodo";
 
 /** Modal viewer: pages through a project's screenshots, with figures, team, role and the GitHub link. */
 export default function Viewer({ index, onClose }: { index: number; onClose: () => void }) {
+  // Rendered only while open (see ViewerHost).
   const p = projects[index];
   const [page, setPage] = useState(0);
   const boxRef = useRef<HTMLDivElement>(null);
@@ -78,7 +79,7 @@ export default function Viewer({ index, onClose }: { index: number; onClose: () 
         </div>
         <div className="vinfo">
           <button ref={closeRef} type="button" className="vclose" onClick={onClose} aria-label="Close viewer">✕</button>
-          <p className="label">{p.n} · {p.course} · {p.date}</p>
+          <p className="kicker">{p.course} · {p.date}</p>
           <h2 id="v-title">{p.title}</h2>
           {p.simulated && <span className="sim-tag">Simulated results</span>}
           <p>{p.summary}</p>
@@ -95,7 +96,7 @@ export default function Viewer({ index, onClose }: { index: number; onClose: () 
             <div><dt>My role</dt><dd><TextOrTodo value={p.role} /></dd></div>
             {p.note && <div><dt>Note</dt><dd>{p.note}</dd></div>}
           </dl>
-          <a className="btn" href={GITHUB_PROJECTS + p.dir} target="_blank" rel="noopener">
+          <a className="btn solid" href={GITHUB_PROJECTS + p.dir} target="_blank" rel="noopener">
             {deals.github} <span aria-hidden="true">↗</span>
           </a>
         </div>

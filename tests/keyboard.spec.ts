@@ -1,40 +1,34 @@
 import { expect, test } from "@playwright/test";
-import { stations } from "../src/content/cv";
 
-test("3D walk: keyboard reaches every station via the mini-map, arrows step through", async ({ page }) => {
-  await page.goto("./?mode=3d");
-  await expect(page.locator("section.walk3d")).toBeVisible({ timeout: 20_000 });
-  for (const s of stations) {
-    const b = page.getByRole("button", { name: `${s.n} ${s.short}: ${s.title}` });
-    await b.focus();
-    await expect(b).toBeFocused();
-    await page.keyboard.press("Enter");
-    await expect(page.locator(".overlay .spanel h3")).toHaveText(s.title, { timeout: 8000 });
-    await expect(b).toHaveAttribute("aria-current", "step");
-  }
-  // Arrow keys: back one station, then forward again.
-  await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur());
-  await page.keyboard.press("ArrowLeft");
-  await expect(page.locator(".overlay .spanel h3")).toHaveText(stations[4].title, { timeout: 8000 });
-  await page.keyboard.press("ArrowRight");
-  await expect(page.locator(".overlay .spanel h3")).toHaveText(stations[5].title, { timeout: 8000 });
-});
-
-test("focus is visible on interactive elements", async ({ page }) => {
-  await page.goto("./?mode=2d");
+test("skip link is first and visibly focused", async ({ page }) => {
+  await page.goto("./");
   await page.keyboard.press("Tab");
   const skip = page.getByRole("link", { name: "Skip to content" });
   await expect(skip).toBeFocused();
-  const outline = await skip.evaluate((e) => getComputedStyle(e).outlineStyle);
-  expect(outline).not.toBe("none");
+  expect(await skip.evaluate((e) => getComputedStyle(e).outlineStyle)).not.toBe("none");
 });
 
-test("project viewer: open with keyboard, page through, close returns focus", async ({ page }) => {
-  await page.goto("./?mode=2d");
-  const first = page.locator(".stone").first();
-  await first.focus();
+test("timeline: strips scroll with buttons and moments open the viewer from the keyboard", async ({ page }) => {
+  await page.goto("./");
+  const strip = page.locator("#esade .strip");
+  await strip.scrollIntoViewIfNeeded();
+  const before = await strip.evaluate((e) => e.scrollLeft);
+  await page.getByRole("button", { name: "Scroll ESADE, Barcelona forward" }).click();
+  await expect.poll(() => strip.evaluate((e) => e.scrollLeft)).toBeGreaterThan(before);
+  const card = page.locator("#esade button.moment").first();
+  await card.focus();
   await page.keyboard.press("Enter");
   await expect(page.getByRole("dialog")).toBeVisible();
+  await expect(page.getByRole("heading", { level: 2, name: "Private client portfolio" })).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(card).toBeFocused();
+});
+
+test("project viewer: page through and link to GitHub", async ({ page }) => {
+  await page.goto("./");
+  const first = page.locator(".card").first();
+  await first.focus();
+  await page.keyboard.press("Enter");
   await expect(page.getByText("1 / 4")).toBeVisible();
   await page.keyboard.press("ArrowRight");
   await expect(page.getByText("2 / 4")).toBeVisible();

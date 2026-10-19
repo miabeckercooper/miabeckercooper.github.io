@@ -1,8 +1,8 @@
 import { StrictMode } from "react";
 import { createRoot, hydrateRoot } from "react-dom/client";
-import "@fontsource-variable/archivo/wdth.css";
-import "@fontsource-variable/source-serif-4/index.css";
-import "@fontsource-variable/jetbrains-mono/index.css";
+import "@fontsource-variable/bodoni-moda/opsz.css";
+import "@fontsource-variable/bodoni-moda/opsz-italic.css";
+import "@fontsource-variable/hanken-grotesk/index.css";
 import "./styles/tokens.css";
 import "./styles/base.css";
 import { App } from "./App";
