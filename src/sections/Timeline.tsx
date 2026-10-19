@@ -3,6 +3,7 @@ import { chapters, identity, projects, thesis, timeline } from "../content/cv";
 import type { Chapter, Moment } from "../content/types";
 import { viewerStore } from "../lib/viewerStore";
 import { Photo } from "../ui/Photo";
+import { Gantt } from "./Gantt";
 
 function MomentCard({ m }: { m: Moment }) {
   const inner = (
@@ -70,8 +71,8 @@ function ChapterBlock({ c }: { c: Chapter }) {
           {c.photo && (
             <li>
               <figure className="moment photo">
-                <Photo name={c.photo.name} alt={c.photo.alt} sizes="(max-width: 600px) 86vw, 520px" width={2048} height={1536} />
-                <figcaption>CEMS at CBS</figcaption>
+                <Photo name={c.photo.name} alt={c.photo.alt} sizes="(max-width: 600px) 80vw, 360px" width={1170} height={1152} />
+                <figcaption>{c.photo.caption}</figcaption>
               </figure>
             </li>
           )}
@@ -85,10 +86,11 @@ function ChapterBlock({ c }: { c: Chapter }) {
 export function Timeline() {
   return (
     <div id="timeline">
-      <div className="wrap timeline-head">
+      <div className="wrap timeline-head" style={{ paddingBottom: 48 }}>
         <p className="kicker">{timeline.label}</p>
         <h2 className="section-title">{timeline.title}</h2>
         <p className="section-intro">{timeline.intro}</p>
+        <Gantt />
       </div>
       {chapters.map((c) => <ChapterBlock key={c.id} c={c} />)}
     </div>

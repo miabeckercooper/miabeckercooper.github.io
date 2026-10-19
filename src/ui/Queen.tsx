@@ -2,7 +2,7 @@
 export function Queen() {
   return (
     <svg viewBox="0 0 400 400" role="img" aria-label="Illustration of a chess queen standing on a board">
-      <circle cx="200" cy="200" r="190" fill="var(--blush)" />
+      <circle cx="200" cy="200" r="190" fill="var(--paper)" />
       {/* Board squares fanning out in perspective */}
       <g opacity="0.9">
         {[0, 1, 2, 3, 4, 5].map((i) => (

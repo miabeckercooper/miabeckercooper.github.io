@@ -1,52 +1,60 @@
 /*
- * Layout: an editorial magazine profile. White space and real photographs up front, then each career chapter
- * as a full-bleed colour block with a swipeable strip of moments. Rounded, soft shapes; no boxes, rules or grids.
+ * Layout: an analyst's annual report. White pages with navy ink and one violet accent; each section has its own
+ * treatment (chart, dark process sheet, exhibits, table, lavender team page) instead of saturated colour blocks.
  */
 :root {
   --paper: #FFFFFF;
-  --paper-2: #FBF0F0;
-  --ink: #1C1730;
-  --ink-2: #5A5269;
-  --line: #EBDDE1;
-  --blush: #F4D4D5;
-  --accent: #B3124E;
-  /* Filled surfaces with white text keep the deep raspberry in both themes. */
-  --accent-fill: #B3124E;
-  --focus: #2340D8;
+  --paper-2: #F5F4FA;
+  --ink: #141A33;
+  --ink-2: #4E5370;
+  --line: #E1E0EC;
+  --tint: #ECE8FA;
+  --accent: #5A3FC0;
+  --accent-fill: #5A3FC0;
+  --focus: #5A3FC0;
 
-  /* Chapter colours: the same in both themes, each block is its own surface. */
-  --cobalt: #2340D8;
-  --raspberry: #B3124E;
-  --forest: #0D6B4E;
-  --tangerine: #F26B1D;
-  --on-colour: #FFFFFF;
-  --on-tangerine: #1C1730;
+  /* Dark "process sheet" surfaces (method, ticker, contact): the same in both themes. */
+  --navy: #141A33;
+  --navy-2: #1E2547;
+  --on-navy: #EEF0F8;
+  --on-navy-2: #B5BAD3;
+  --lilac: #B9A8FF;
+
+  /* Chapter accents, used only as thin marks and chart bars. */
+  --steel: #2F5D9B;
+  --violet: #5A3FC0;
+  --green: #0E7A4F;
+  --ember: #B8430C;
 
   /* Names the live-model charts read. */
   --sheet: var(--paper);
   --rule: var(--line);
-  --grid: rgba(179, 18, 78, 0.06);
-  --brass: #9A5B00;
-  --gain: #0D6B4E;
+  --grid: rgba(90, 63, 192, 0.06);
+  --brass: #8A5A00;
+  --gain: #0E7A4F;
   --loss: #C2341C;
 
   --display: "Bodoni Moda Variable", "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
   --body: "Hanken Grotesk Variable", "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
 
-  --radius: 28px;
-  --radius-sm: 16px;
+  --radius: 20px;
+  --radius-sm: 12px;
   --header-h: 64px;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #15111F; --paper-2: #1F1829; --ink: #F6EEF0; --ink-2: #C3B8C9; --line: #33293D; --blush: #3B2533;
-    --accent: #FF7AA8; --focus: #9DB0FF; --grid: rgba(255, 122, 168, 0.07); --brass: #F2B566; --gain: #5ED3A6; --loss: #FF8A73;
+    --paper: #0F1328; --paper-2: #161B36; --ink: #EEF0F8; --ink-2: #B5BAD3; --line: #2A3054; --tint: #1F2148;
+    --accent: #B9A8FF; --focus: #B9A8FF; --navy: #070A1A; --navy-2: #12162E;
+    --steel: #7FA6E0; --violet: #B9A8FF; --green: #4CC793; --ember: #F08A55;
+    --grid: rgba(185, 168, 255, 0.07); --brass: #F2B566; --gain: #4CC793; --loss: #FF8A73;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --paper: #15111F; --paper-2: #1F1829; --ink: #F6EEF0; --ink-2: #C3B8C9; --line: #33293D; --blush: #3B2533;
-  --accent: #FF7AA8; --focus: #9DB0FF; --grid: rgba(255, 122, 168, 0.07); --brass: #F2B566; --gain: #5ED3A6; --loss: #FF8A73;
+  --paper: #0F1328; --paper-2: #161B36; --ink: #EEF0F8; --ink-2: #B5BAD3; --line: #2A3054; --tint: #1F2148;
+  --accent: #B9A8FF; --focus: #B9A8FF; --navy: #070A1A; --navy-2: #12162E;
+  --steel: #7FA6E0; --violet: #B9A8FF; --green: #4CC793; --ember: #F08A55;
+  --grid: rgba(185, 168, 255, 0.07); --brass: #F2B566; --gain: #4CC793; --loss: #FF8A73;
   color-scheme: dark;
 }

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Kpi } from "../content/types";
 import { prefersReducedMotion } from "../lib/env";
+import { Micro } from "./Micro";
 
 const fmt = (k: Kpi, v: number) => `${k.prefix ?? ""}${v.toFixed(k.decimals ?? 0)}${k.suffix ?? ""}`;
 
@@ -32,7 +33,8 @@ export function Kpis({ items }: { items: Kpi[] }) {
         <li key={k.label}>
           <Counter k={k} delay={300 + i * 140} />
           <span className="sr-only">{fmt(k, k.value)} </span>
-          <span>{k.label}</span>
+          <span className="lbl">{k.label}</span>
+          <Micro k={k} />
         </li>
       ))}
     </ul>

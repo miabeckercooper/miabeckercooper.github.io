@@ -10,9 +10,13 @@ export function Models() {
   return (
     <section className="block" id="models" aria-labelledby="models-title">
       <div className="wrap">
-        <p className="kicker">{models.label}</p>
-        <h2 className="section-title" id="models-title">{models.title}</h2>
-        <p className="section-intro">{models.intro}</p>
+        <div className="sec-top">
+          <div>
+            <p className="kicker">{models.label}</p>
+            <h2 className="section-title" id="models-title">{models.title}</h2>
+          </div>
+          <p className="section-intro">{models.intro}</p>
+        </div>
         <div ref={ref}>
           {seen ? (
             <Suspense fallback={<Placeholder />}>

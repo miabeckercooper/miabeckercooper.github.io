@@ -35,10 +35,10 @@ export const nav = [
 ];
 
 export const kpis: Kpi[] = [
-  { value: 30, label: "client portfolios in my risk workbook" },
-  { value: 95, prefix: "~", suffix: "%", label: "less reporting prep, after automation" },
-  { value: 11, label: "finance projects, files on GitHub" },
-  { value: 8.5, decimals: 1, suffix: "/10", label: "MSc in Finance, ESADE" },
+  { value: 30, label: "client portfolios in my risk workbook", chart: "grid" },
+  { value: 95, prefix: "~", suffix: "%", label: "less reporting prep, after automation", chart: "beforeAfter" },
+  { value: 11, label: "finance projects, files on GitHub", chart: "count" },
+  { value: 8.5, decimals: 1, suffix: "/10", label: "MSc in Finance, ESADE", chart: "gauge", of: 10 },
 ];
 
 /** Scrolling highlights band under the hero. */
@@ -56,15 +56,18 @@ export const ticker = [
 /* ---------------- Timeline: four chapters ---------------- */
 
 export const timeline = {
-  label: "Timeline",
+  label: "Exhibit 1 · Career timeline",
   title: "From engineering to the trading desk",
-  intro: "Four chapters. Swipe through each one; tap a project to see the actual work.",
+  intro: "Four chapters on one time axis. Tap a bar to jump to it, then swipe through the chapter; tap a project to see the actual work.",
+  thesisMarker: "Thesis",
 };
 
 export const thesis = {
   title: "AI Implementation & Adoption in Private Banking",
   grade: "85%",
   context: "MSc in Finance thesis, ESADE. In-company with ANDBank, Jun–Aug 2026.",
+  start: "2026-06",
+  end: "2026-08",
   access: "The full thesis and defence deck are shared privately with recruiters on request.",
   request: "Request access",
 };
@@ -72,7 +75,7 @@ export const thesis = {
 export const chapters: Chapter[] = [
   {
     id: "bristol",
-    colour: "cobalt",
+    colour: "steel", start: "2021-09", end: "2024-07", short: "BEng, Bristol",
     place: "University of Bristol",
     title: "BEng Mechanical Engineering",
     dates: "Sep 2021 – Jul 2024",
@@ -86,7 +89,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: "esade",
-    colour: "raspberry",
+    colour: "violet", start: "2025-08", end: "2026-06", short: "MSc Finance, ESADE",
     place: "ESADE, Barcelona",
     title: "MSc in Finance",
     dates: "Aug 2025 – Jun 2026",
@@ -106,7 +109,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: "andbank",
-    colour: "forest",
+    colour: "green", start: "2026-06", end: "2026-08", short: "ANDBank Monaco",
     place: "ANDBank Monaco",
     title: "Investment & Portfolio Risk Management Intern",
     dates: "Jun – Aug 2026",
@@ -122,12 +125,12 @@ export const chapters: Chapter[] = [
   },
   {
     id: "cbs",
-    colour: "tangerine",
+    colour: "ember", start: "2026-09", end: "2027-07", short: "CEMS MIM, CBS",
     place: "Copenhagen Business School",
     title: "CEMS Master's in International Management",
     dates: "Sep 2026 – Jul 2027",
     summary: "ESADE & CBS. Building AI Business Ventures in Digital Ecosystems; Entrepreneurship: Theory and Evidence; Negotiations in a Global Context.",
-    photo: { name: "cems-group", alt: "Group photo of students at a CEMS event at Copenhagen Business School" },
+    photo: { name: "ca-team", alt: "Poster: Meet the Corporate & Alumni team, Fall 2026, with six team members", caption: "CEMS Corporate & Alumni Team, Fall 2026" },
     moments: [
       { date: "Sep 2026", title: "CEMS MIM begins", body: "Core: Negotiations in a Global Context, Financial Analysis, AI & Machine Learning, Data Analytics." },
       { date: "Sep 2026 – now", title: "Head of Finance, Women in Finance", body: "Budget, sponsorships and industry events at CBS." },
@@ -139,14 +142,15 @@ export const chapters: Chapter[] = [
 ];
 
 export const method = {
-  label: "How I work",
+  label: "Exhibit 2 · Investment process",
   title: "Engineering thinking, applied to investing",
   intro:
-    "An engineer doesn't trust a machine until it has been taken apart, modelled and load-tested. I treat an investment case the same way. Tap a step for a real example.",
+    "An engineer doesn't trust a machine until it has been taken apart, modelled and load-tested. I treat an investment case the same way.",
   steps: [
     {
       k: "01",
       title: "Decompose",
+      formula: "Exposure = Σ wᵢ · xᵢ",
       summary: "Look through to what a portfolio really holds",
       example: "ANDBank: exposure across portfolio managers' books",
       body:
@@ -156,6 +160,7 @@ export const method = {
     {
       k: "02",
       title: "Model",
+      formula: "V₀ = Σ FCFₜ ⁄ (1 + WACC)ᵗ + TV ⁄ (1 + WACC)ᴺ",
       summary: "Build the value from its drivers",
       example: "IAG: a DCF with every input exposed",
       body:
@@ -165,6 +170,7 @@ export const method = {
     {
       k: "03",
       title: "Stress-test",
+      formula: "DSR = Φ[(SR̂ − SR₀) · √(T − 1) ⁄ σ̂(SR̂)]",
       summary: "Try to break your own result",
       example: "Substrate: reporting the versions that failed",
       body:
@@ -174,6 +180,7 @@ export const method = {
     {
       k: "04",
       title: "Decide",
+      formula: "P(V > $52.40) ≈ 75%",
       summary: "Turn uncertainty into a call",
       example: "Nike: a probability, not a point estimate",
       body:
@@ -186,7 +193,7 @@ export const method = {
 /* ---------------- Live models ---------------- */
 
 export const models = {
-  label: "Live models",
+  label: "Exhibit 3 · Live models",
   title: "Don't take my word for it. Move the inputs.",
   intro:
     "Four models rebuilt from my projects, with the numbers from the final reports. Change an assumption and watch the conclusion hold or break.",
@@ -285,7 +292,7 @@ export const areas: { id: ProjectArea | "all"; label: string }[] = [
 const roleTodo: Text = { todo: "Mia's role on this project is not in FACTS.md yet" };
 
 export const deals = {
-  label: "Projects",
+  label: "Exhibit 4 · Project book",
   title: "The deal wall",
   intro:
     "Bankers get a tombstone for every closed deal. These are mine. Tap one to flick through the actual work.",
@@ -444,6 +451,8 @@ export const projects: Project[] = [
 export const leadership = {
   label: "Leadership",
   title: "Leading from the front",
+  team: { name: "ca-team", alt: "Poster: Meet the Corporate & Alumni team, Fall 2026, with six team members", caption: "CEMS Corporate & Alumni Team, Fall 2026" },
+  community: { name: "cems-group", alt: "Group photo of students at a CEMS event at Copenhagen Business School", caption: "CEMS community at Copenhagen Business School" },
   intro: "The queen is the piece that moves furthest in every direction. I try to lead the same way: take the first step, then bring people with me.",
   roles: [
     { title: "Head of Finance, Women in Finance", org: "Copenhagen Business School", dates: "Sep 2026 – present", body: "Budget, sponsorships and industry events." },
@@ -483,7 +492,7 @@ export const about = {
   label: "About me",
   title: "Off the clock",
   intro: "Engineer by training, investor by choice, and a few things that keep me sharp outside work.",
-  photo: { name: "headshot", alt: "Portrait of Mia Becker-Cooper" },
+  photo: { name: "mirror", alt: "Mia Becker-Cooper, full-length, at home" },
   hobbies: [
     { icon: "book", title: "Philosophy and politics", body: "Good training for questioning assumptions before trusting a model." },
     { icon: "chess", title: "Chess", body: "Trying to beat my boyfriend, one game at a time." },

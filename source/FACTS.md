@@ -87,3 +87,6 @@ Share price €4.60. Base case WACC 7.2%, g 2.0% → €10.17.
 - portrait-hallway.jpg: Mia, arms crossed, white hallway. Hero.
 - headshot.jpg: Mia, plain white wall. Profile.
 - cems-group.jpg: group photo at a CEMS event at CBS (Mia's exact role at this event not stated; caption neutrally).
+- mirror.jpg: Mia, full-length, at home. First photo in the 'Off the clock' section (Mia's request).
+- ca-team.jpg: 'Meet the Corporate & Alumni, Fall 2026' team poster (CEMS Corporate & Alumni Team, Mia included). Supplied by Mia.
+- Colour: Mia prefers purple to pink (Oct 2026).

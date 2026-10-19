@@ -15,9 +15,13 @@ export type Kpi = {
   suffix?: string;
   decimals?: number;
   label: string;
+  /** Small chart drawn next to the number. */
+  chart: "grid" | "beforeAfter" | "count" | "gauge";
+  /** Scale for the chart, e.g. 10 for a grade out of 10. */
+  of?: number;
 };
 
-export type ChapterColour = "cobalt" | "raspberry" | "forest" | "tangerine";
+export type ChapterColour = "steel" | "violet" | "green" | "ember";
 
 export type Moment = {
   date: string;
@@ -38,13 +42,19 @@ export type Chapter = {
   title: string;
   dates: string;
   summary: string;
-  photo?: { name: string; alt: string };
+  /** Year-month for the timeline chart, e.g. "2021-09". */
+  start: string;
+  end: string;
+  /** Short label on the timeline chart. */
+  short: string;
+  photo?: { name: string; alt: string; caption: string };
   moments: Moment[];
 };
 
 export type MethodStep = {
   k: string;
   title: string;
+  formula: string;
   summary: string;
   example: string;
   body: string;

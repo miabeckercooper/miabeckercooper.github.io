@@ -2,6 +2,9 @@ import { about, leadership as L } from "../content/cv";
 import { HobbyIcon } from "../ui/HobbyIcon";
 import { Photo } from "../ui/Photo";
 
+/** Bar length for each language level (a visual scale, not a test score). */
+const LEVEL: Record<string, number> = { Native: 100, Fluent: 85, Intermediate: 55, Learning: 25 };
+
 export function About() {
   return (
     <section className="block about" id="about" aria-labelledby="about-title">
@@ -9,8 +12,8 @@ export function About() {
         <p className="kicker">{about.label}</p>
         <h2 className="section-title" id="about-title">{about.title}</h2>
         <div className="about-grid">
-          <div className="headshot">
-            <Photo name={about.photo.name} alt={about.photo.alt} sizes="(max-width: 860px) 300px, 380px" width={1932} height={2576} />
+          <div className="about-photo">
+            <Photo name={about.photo.name} alt={about.photo.alt} sizes="(max-width: 860px) 320px, 400px" width={750} height={1000} />
           </div>
           <div>
             <p className="section-intro" style={{ marginTop: 0, marginBottom: 24 }}>{about.intro}</p>
@@ -41,7 +44,13 @@ export function About() {
           <div>
             <h3>Languages</h3>
             <dl className="langs">
-              {about.languages.map((l) => <div key={l.name}><dt>{l.name}</dt><dd>{l.level}</dd></div>)}
+              {about.languages.map((l) => (
+                <div key={l.name}>
+                  <dt>{l.name}</dt>
+                  <span className="meter" aria-hidden="true"><i style={{ width: `${LEVEL[l.level] ?? 20}%` }} /></span>
+                  <dd>{l.level}</dd>
+                </div>
+              ))}
             </dl>
             <h3 style={{ marginTop: 32 }}>Skills</h3>
             <dl className="skills">
