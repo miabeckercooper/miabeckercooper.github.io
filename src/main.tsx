@@ -6,6 +6,7 @@ import "@fontsource-variable/hanken-grotesk/index.css";
 import "./styles/tokens.css";
 import "./styles/base.css";
 import { App } from "./App";
+import { startAnalytics } from "./lib/analytics";
 
 const root = document.getElementById("root")!;
 const app = (
@@ -16,3 +17,5 @@ const app = (
 // The production build is prerendered (scripts/prerender.ts); dev renders from scratch.
 if (root.firstElementChild) hydrateRoot(root, app);
 else createRoot(root).render(app);
+
+startAnalytics();

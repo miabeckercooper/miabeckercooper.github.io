@@ -1,4 +1,5 @@
 import { contact as C, identity } from "../content/cv";
+import { GOATCOUNTER } from "../lib/analytics";
 
 export function Contact() {
   return (
@@ -19,7 +20,7 @@ export function Contact() {
       <footer className="foot">
         <div className="wrap">
           <span>© {C.year} {identity.name}</span>
-          <span>{C.footer}</span>
+          <span>{C.footer}{GOATCOUNTER ? ` ${C.analytics}` : ""}</span>
         </div>
       </footer>
     </>

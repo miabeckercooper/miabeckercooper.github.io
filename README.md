@@ -43,3 +43,12 @@ One-time settings (GitHub → this repo → Settings):
 ## Privacy rules (from CLAUDE.md)
 
 No phone number anywhere. The thesis and defence deck never go on the public site or in this (public) repo: the site shows the title and 85% grade, and the files live on a private, access-controlled page shared with selected recruiters. ANDBank figures follow the CV, with no client names, holdings or internal files. Teammates are credited, and backtests are marked as simulated.
+
+## Visitor counts
+
+GoatCounter (free, no cookies, no personal data). Set `VITE_GOATCOUNTER=<site code>` in `.env`; empty means off.
+Give each application its own link (`https://miabeckercooper.github.io/?r=firmname`) to see which link was opened. It counts visits; it never identifies people.
+
+## Working with other AI tools or people
+
+Anyone (or any AI tool) editing this repo must follow CLAUDE.md and source/FACTS.md. Make changes on a branch and open a pull request rather than pushing to `main`. The build refuses to deploy if a number in `src/content/cv.ts` is not in FACTS.md.

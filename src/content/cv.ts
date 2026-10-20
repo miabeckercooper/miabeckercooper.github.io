@@ -517,5 +517,6 @@ export const contact = {
   github: "GitHub",
   cv: "View CV",
   footer: "Coursework uses public data. Backtests are simulated. Nothing here is investment advice.",
+  analytics: "Anonymous visit counts (GoatCounter), no cookies.",
   year: "2026",
 };
