@@ -328,3 +328,62 @@ footer.foot .wrap { display: flex; justify-content: space-between; gap: 12px; fl
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
+
+
+/* ---------- Editorial portfolio refinements ---------- */
+/* Use the projects themselves as the visual material; avoid generic dashboard chrome. */
+.hero { padding-top: clamp(34px, 5.5vw, 76px); }
+.hero .lede { max-width: 46ch; line-height: 1.55; }
+.hero .portrait::before { border-radius: 48% 52% 45% 55%; transform: rotate(-8deg); }
+.hero .portrait .arch { border-radius: 48% 48% var(--radius) var(--radius); }
+.hero .hero-name { letter-spacing: -0.01em; }
+.hero .avail { border: 1px solid var(--line); }
+
+.ticker { border-block: 0; }
+.ticker li { letter-spacing: 0.01em; }
+.ticker li::marker { content: ""; }
+
+#projects { padding-top: clamp(72px, 8vw, 104px); }
+#projects .sec-top { margin-bottom: 4px; }
+#projects .section-intro { max-width: 48ch; }
+.project-bar { padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.cards { gap: clamp(14px, 2vw, 24px); align-items: stretch; }
+.card { border-radius: 4px; padding: 10px 10px 18px; box-shadow: none; }
+.card:hover { box-shadow: 0 16px 32px -28px rgba(20, 26, 51, 0.55); }
+.card .shot { border-radius: 2px; }
+.cards > li:nth-child(-n+3) .card { border-top: 3px solid var(--accent); padding-top: 8px; }
+.cards > li:nth-child(-n+3) .shot { aspect-ratio: 16 / 9; }
+.card h3 { font-family: var(--display); font-size: clamp(1.25rem, 1.8vw, 1.55rem); font-weight: 600; letter-spacing: -0.015em; }
+.card .fig { font-size: clamp(1.8rem, 2.4vw, 2.25rem); }
+.card .ctx { margin-top: auto; }
+.card:focus-visible { outline-offset: 4px; }
+
+#models { background: var(--paper-2); border-block: 1px solid var(--line); }
+#models .section-intro { max-width: 48ch; }
+#method { background: var(--navy); }
+#timeline .timeline-head { padding-top: clamp(64px, 8vw, 100px); }
+.timeline-head .section-intro { max-width: 58ch; }
+.chapter { border-top-color: color-mix(in srgb, var(--line) 78%, var(--accent)); }
+.chapter:nth-of-type(even) { background: var(--paper); }
+.chapter:nth-of-type(odd) { background: var(--paper-2); }
+.moment { border-radius: 4px; box-shadow: none; }
+.moment.thesis { border-radius: 4px; }
+.strip-nav button { border-radius: 4px; }
+.lead-poster, .lead-wide .ph, .about-photo { border-radius: 4px; }
+.roles li { border-bottom-color: var(--line); }
+.contact { background: var(--navy); }
+.contact h2 { letter-spacing: -0.035em; }
+footer.foot .wrap { border-top-color: color-mix(in srgb, var(--navy-2) 80%, var(--lilac)); }
+
+@media (min-width: 1100px) {
+  .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .hero { padding-top: 24px; }
+  .hero h1 { font-size: clamp(2.7rem, 13vw, 4.2rem); }
+  .hero .portrait { width: min(68%, 290px); }
+  .hero .lede { font-size: 1.06rem; }
+  .project-bar { align-items: flex-start; }
+  .cards { grid-template-columns: minmax(0, 1fr); }
+  .cards > li:nth-child(-n+3) .shot { aspect-ratio: 16 / 10; }
+}
