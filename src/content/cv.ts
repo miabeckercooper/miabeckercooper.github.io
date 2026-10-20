@@ -26,9 +26,9 @@ export const identity = {
 };
 
 export const nav = [
-  { label: "Timeline", href: "#timeline" },
+  { label: "Selected work", href: "#projects" },
   { label: "Models", href: "#models" },
-  { label: "Projects", href: "#projects" },
+  { label: "Journey", href: "#timeline" },
   { label: "Leadership", href: "#leadership" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
@@ -57,8 +57,8 @@ export const ticker = [
 
 export const timeline = {
   label: "Exhibit 1 · Career timeline",
-  title: "From engineering to the trading desk",
-  intro: "Four chapters on one time axis. Tap a bar to jump to it, then swipe through the chapter; tap a project to see the actual work.",
+  title: "A route from engineering to investment analysis",
+  intro: "The thread runs from engineering systems to financial models, portfolio risk and investment research. Explore the work first, then follow the decisions and experiences behind it.",
   thesisMarker: "Thesis",
 };
 
@@ -293,9 +293,9 @@ const roleTodo: Text = { todo: "Mia's role on this project is not in FACTS.md ye
 
 export const deals = {
   label: "Exhibit 4 · Project book",
-  title: "The deal wall",
+  title: "Selected research & project archive",
   intro:
-    "Bankers get a tombstone for every closed deal. These are mine. Tap one to flick through the actual work.",
+    "A working archive of valuation, portfolio construction, systematic strategies and derivatives. Open a project to see the evidence, assumptions, team context and supporting work.",
   github: "Open the files on GitHub",
 };
 
