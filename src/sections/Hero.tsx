@@ -15,7 +15,7 @@ export function Hero() {
           <p className="lede">{identity.lede}</p>
           <Kpis items={kpis} />
           <div className="btns">
-            <a className="btn solid" href="#timeline">Explore selected work</a>
+            <a className="btn solid" href="#projects">Explore selected work</a>
             <a className="btn" href="#models">Explore interactive models</a>
           </div>
         </div>
