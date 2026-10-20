@@ -18,10 +18,10 @@ export function App() {
       <main id="main">
         <Hero />
         <Ticker />
-        <Timeline />
-        <Method />
-        <Models />
         <Projects />
+        <Models />
+        <Method />
+        <Timeline />
         <Leadership />
         <About />
       </main>
