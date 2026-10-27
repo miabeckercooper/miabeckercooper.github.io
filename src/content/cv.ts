@@ -342,7 +342,7 @@ export const projects: Project[] = [
   {
     n: "02", dir: "02-bloomberg-trading-challenge", title: "Bloomberg Trading Challenge", area: "quant",
     course: "Asset Pricing", date: "6–20 Mar 2026",
-    summary: "A €100M book managed over two weeks against the B500 benchmark, with 54.3% held in cash.",
+    summary: "A simulated €100M book managed over two weeks against the B500 benchmark, with 54.3% held in cash.",
     hero: { value: "+3.1 pp", label: "vs benchmark" },
     figures: [
       { value: "+0.695%", label: "return vs −2.4% B500" },
