@@ -155,7 +155,7 @@ export const chapters: Chapter[] = [
       { date: "Sep 2026 – now", title: "Head of Finance, Women in Finance", body: "Budget, sponsorships and industry events at CBS." },
       { date: "2026", title: "CEMS Corporate & Alumni Team", metric: "Up to 20", metricLabel: "students paired with alumni in the mentorship programme I launched and led" },
       { date: "2026", title: "VC and PE clubs", body: "Member of the CBS Venture Capital Club and Private Equity Club." },
-      { date: "Jul 2027", title: "Graduation", body: "Available summer 2027." },
+      { date: "Jul 2027", title: "Graduation", body: "Available from June 2027." },
     ],
   },
 ];
