@@ -82,6 +82,7 @@ Share price €4.60. Base case WACC 7.2%, g 2.0% → €10.17.
 - Pilates and dance.
 - Volunteers at homeless shelters (see Wild Goose Shelter, Bristol, 2023–24).
 - Builds AI agents (see Hermes and the 16-skill AI library at ANDBank).
+- Personality test (16Personalities, Oct 2026): ENFJ-A, Protagonist, role Diplomat, strategy People Mastery. Show the type only, not the trait percentages.
 
 ## Photos (source/photos, supplied by Mia, Oct 2026)
 - portrait-hallway.jpg: Mia, arms crossed, white hallway. Hero.

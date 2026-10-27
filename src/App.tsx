@@ -5,6 +5,7 @@ import { Leadership } from "./sections/Leadership";
 import { Method } from "./sections/Method";
 import { Models } from "./sections/models/Models";
 import { Projects } from "./sections/Projects";
+import { Research } from "./sections/Research";
 import { Ticker } from "./sections/Ticker";
 import { Timeline } from "./sections/Timeline";
 import { ViewerHost } from "./sections/ViewerHost";
@@ -18,6 +19,7 @@ export function App() {
       <main id="main">
         <Hero />
         <Ticker />
+        <Research />
         <Timeline />
         <Method />
         <Models />

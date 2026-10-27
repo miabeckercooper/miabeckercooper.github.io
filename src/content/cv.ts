@@ -26,6 +26,7 @@ export const identity = {
 };
 
 export const nav = [
+  { label: "Research", href: "#research" },
   { label: "Timeline", href: "#timeline" },
   { label: "Models", href: "#models" },
   { label: "Projects", href: "#projects" },
@@ -53,10 +54,28 @@ export const ticker = [
   "MSc thesis ▲ 85%",
 ];
 
+/* ---------------- Selected research: chart previews from real numbers ---------------- */
+
+export const research = {
+  label: "Exhibit 1 · Selected research",
+  title: "The work, in four charts",
+  intro: "Each chart is drawn from the numbers in the final report. Open one to move the inputs yourself.",
+  cards: [
+    { kind: "heatmap", title: "Equity valuation", sub: "IAG · DCF sensitivity", body: "Value per share across 9 discount rates and 5 growth rates. Every cell stays above the €4.60 share price.",
+      source: "Source: IAG valuation, Corporate Valuation, Mar 2026. Team 6.", model: "dcf", cta: "Move the inputs" },
+    { kind: "variants", title: "Systematic investing", sub: "Substrate Capital · simulated", body: "Four versions tested and all reported. Deflating the Sharpe ratio separates the 130/30 books from noise.",
+      source: "Source: Substrate Capital pitch, Asset Management, Jun 2026. Simulated backtest.", model: "backtest", cta: "Open the backtest lab" },
+    { kind: "distribution", title: "Probabilistic valuation", sub: "Nike · Monte Carlo", body: "A distribution instead of a point estimate: about 75% of outcomes above the $52.40 share price.",
+      source: "Source: Nike activist valuation, Mar 2026. Simulated, reconstructed from the reported median and P10–P90.", model: "mc", cta: "Rerun the simulation" },
+    { kind: "allocation", title: "Project book", sub: "11 projects · by area", body: "Where the work sits: valuation, quant and trading, derivatives and rates, wealth management and macro.",
+      source: "Source: finance-portfolio repository, Nov 2025 – Jun 2026.", model: "", cta: "Browse the projects" },
+  ] as { kind: "heatmap" | "variants" | "distribution" | "allocation"; title: string; sub: string; body: string; source: string; model: string; cta: string }[],
+};
+
 /* ---------------- Timeline: four chapters ---------------- */
 
 export const timeline = {
-  label: "Exhibit 1 · Career timeline",
+  label: "Exhibit 2 · Career timeline",
   title: "From engineering to the trading desk",
   intro: "Four chapters on one time axis. Tap a bar to jump to it, then swipe through the chapter; tap a project to see the actual work.",
   thesisMarker: "Thesis",
@@ -142,7 +161,7 @@ export const chapters: Chapter[] = [
 ];
 
 export const method = {
-  label: "Exhibit 2 · Investment process",
+  label: "Exhibit 3 · Investment process",
   title: "Engineering thinking, applied to investing",
   intro:
     "An engineer doesn't trust a machine until it has been taken apart, modelled and load-tested. I treat an investment case the same way.",
@@ -193,7 +212,7 @@ export const method = {
 /* ---------------- Live models ---------------- */
 
 export const models = {
-  label: "Exhibit 3 · Live models",
+  label: "Exhibit 4 · Live models",
   title: "Don't take my word for it. Move the inputs.",
   intro:
     "Four models rebuilt from my projects, with the numbers from the final reports. Change an assumption and watch the conclusion hold or break.",
@@ -261,6 +280,7 @@ export const models = {
     p10: 44,
     p90: 99,
     run: "Rerun the simulation",
+    probLabel: "P(V > price) ≈ 75%",
     note:
       "Simulated, reconstructed from the distribution in our report: median $65, P10–P90 $44–$99, about 75% above the $52.40 share price. Dashed lines: share price $52.40 and management case $69.05.",
   },
@@ -292,7 +312,7 @@ export const areas: { id: ProjectArea | "all"; label: string }[] = [
 const roleTodo: Text = { todo: "Mia's role on this project is not in FACTS.md yet" };
 
 export const deals = {
-  label: "Exhibit 4 · Project book",
+  label: "Exhibit 5 · Project book",
   title: "The deal wall",
   intro:
     "Bankers get a tombstone for every closed deal. These are mine. Tap one to flick through the actual work.",
@@ -506,6 +526,7 @@ export const about = {
     { name: "German", level: "Intermediate" },
     { name: "Spanish", level: "Learning" },
   ],
+  personality: { type: "ENFJ-A", name: "Protagonist", note: "16Personalities: a diplomat type who leads through people." },
 };
 
 export const contact = {

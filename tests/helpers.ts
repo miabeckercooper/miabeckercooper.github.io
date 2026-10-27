@@ -1,6 +1,6 @@
 import type { Page } from "@playwright/test";
 
-export const SECTIONS = ["timeline", "bristol", "esade", "andbank", "cbs", "method", "models", "projects", "leadership", "about", "contact"];
+export const SECTIONS = ["research", "timeline", "bristol", "esade", "andbank", "cbs", "method", "models", "projects", "leadership", "about", "contact"];
 
 /** Scroll the whole page in steps so lazy sections and images load. */
 export async function scrollThrough(page: Page) {

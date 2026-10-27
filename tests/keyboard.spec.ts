@@ -36,3 +36,11 @@ test("project viewer: page through and link to GitHub", async ({ page }) => {
   await page.keyboard.press("Escape");
   await expect(first).toBeFocused();
 });
+
+test("research cards open the matching live model", async ({ page }) => {
+  await page.goto("./");
+  await page.getByRole("button", { name: /Move the inputs/ }).click();
+  await expect(page.getByRole("tab", { name: /DCF sensitivity/ })).toHaveAttribute("aria-selected", "true", { timeout: 10_000 });
+  await page.getByRole("button", { name: /Rerun the simulation/ }).first().click();
+  await expect(page.getByRole("tab", { name: /Monte Carlo/ })).toHaveAttribute("aria-selected", "true");
+});

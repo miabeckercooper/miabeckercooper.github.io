@@ -33,7 +33,7 @@ section.block { padding-block: clamp(64px, 9vw, 112px); }
 .btns { display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* ---------- Header ---------- */
-.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: color-mix(in srgb, var(--paper) 90%, transparent); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--line); }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: color-mix(in srgb, var(--paper) 97%, transparent); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--line); }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 41; background: var(--paper); }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: var(--header-h); }
 .wordmark { font-family: var(--display); font-weight: 700; font-size: 1.3rem; text-decoration: none; white-space: nowrap; display: inline-flex; align-items: center; min-height: 44px; }
@@ -328,3 +328,23 @@ footer.foot .wrap { display: flex; justify-content: space-between; gap: 12px; fl
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
+
+/* ---------- Selected research: chart cards, research-report style ---------- */
+.research { padding-top: clamp(56px, 8vw, 96px); }
+.rcards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin: 36px 0 0; padding: 0; list-style: none; }
+.rcard { height: 100%; display: flex; flex-direction: column; gap: 6px; border-top: 3px solid var(--ink); padding-top: 14px; }
+.rchart { background: var(--paper-2); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 10px; margin-bottom: 8px; }
+.rchart svg { width: 100%; height: auto; display: block; }
+.rc-t { fill: var(--ink-2); font-size: 11px; font-family: var(--body); font-variant-numeric: tabular-nums; }
+.rc-halo { paint-order: stroke; stroke: var(--paper-2); stroke-width: 4px; }
+.rc-l { fill: var(--ink); font-size: 12px; font-weight: 600; font-family: var(--body); }
+.rc-big { fill: var(--ink); font-size: 26px; font-weight: 800; font-family: var(--body); }
+.rsub { font-size: 0.82rem; font-weight: 700; color: var(--accent); }
+.rcard h3 { font-family: var(--display); font-weight: 600; font-size: 1.5rem; line-height: 1.08; }
+.rbody { font-size: 0.93rem; color: var(--ink-2); }
+.rsrc { font-size: 0.76rem; color: var(--ink-2); font-style: italic; border-top: 1px solid var(--line); padding-top: 8px; margin-top: auto; }
+.rcta { align-self: flex-start; border: 0; background: none; padding: 6px 0; font-weight: 700; color: var(--accent); cursor: pointer; text-decoration: none; display: inline-flex; gap: 6px; min-height: 44px; align-items: center; }
+@media (max-width: 1100px) { .rcards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .rcards { grid-template-columns: minmax(0, 1fr); } }
+.persona b { font-size: 1.1rem; }
+.persona span { color: var(--ink-2); font-size: 0.92rem; display: block; }

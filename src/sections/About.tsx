@@ -52,6 +52,8 @@ export function About() {
                 </div>
               ))}
             </dl>
+            <h3 style={{ marginTop: 32 }}>Personality</h3>
+            <p className="persona"><b>{about.personality.type}</b> {about.personality.name}. <span>{about.personality.note}</span></p>
             <h3 style={{ marginTop: 32 }}>Skills</h3>
             <dl className="skills">
               {L.skills.map((s) => <div key={s.group}><dt>{s.group}</dt><dd>{s.items}</dd></div>)}

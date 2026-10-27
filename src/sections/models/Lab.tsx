@@ -1,4 +1,5 @@
-import { useRef, useState, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { clearPendingModel, EVENT, peekPendingModel } from "../../lib/modelStore";
 import { models } from "../../content/cv";
 import { BacktestLab } from "./BacktestLab";
 import { DcfGrid } from "./DcfGrid";
@@ -9,7 +10,13 @@ const PANELS = { backtest: BacktestLab, dcf: DcfGrid, mc: MonteCarlo, gbm: GbmPa
 type Id = keyof typeof PANELS;
 
 export default function Lab() {
-  const [tab, setTab] = useState<Id>("backtest");
+  const [tab, setTab] = useState<Id>(() => (peekPendingModel() as Id | null) ?? "backtest");
+  useEffect(() => {
+    clearPendingModel();
+    const on = (e: Event) => { const id = (e as CustomEvent<string>).detail as Id; if (id in PANELS) { clearPendingModel(); setTab(id); } };
+    window.addEventListener(EVENT, on);
+    return () => window.removeEventListener(EVENT, on);
+  }, []);
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
   const ids = models.tabs.map((t) => t.id as Id);
   const onKey = (e: KeyboardEvent, i: number) => {
