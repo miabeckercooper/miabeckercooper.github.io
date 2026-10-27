@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
 import { chapters, identity, projects, thesis, timeline } from "../content/cv";
 import type { Chapter, Moment } from "../content/types";
 import { viewerStore } from "../lib/viewerStore";
@@ -37,7 +37,7 @@ function MomentCard({ m }: { m: Moment }) {
 }
 
 /** One chapter: a colour block with a swipeable strip of moments. */
-function ChapterBlock({ c }: { c: Chapter }) {
+function ChapterBlock({ c, hidden }: { c: Chapter; hidden: boolean }) {
   const strip = useRef<HTMLUListElement>(null);
   const [edge, setEdge] = useState({ start: true, end: false });
   useEffect(() => {
@@ -45,13 +45,14 @@ function ChapterBlock({ c }: { c: Chapter }) {
     if (!el) return;
     const update = () => setEdge({ start: el.scrollLeft < 8, end: el.scrollLeft + el.clientWidth > el.scrollWidth - 8 });
     update();
+    if (hidden) return;
     el.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
     return () => { el.removeEventListener("scroll", update); window.removeEventListener("resize", update); };
-  }, []);
+  }, [hidden]);
   const page = (d: number) => strip.current?.scrollBy({ left: d * strip.current.clientWidth * 0.8, behavior: "smooth" });
   return (
-    <section className={`chapter ${c.colour}`} id={c.id} aria-labelledby={`${c.id}-title`}>
+    <section className={`chapter ${c.colour}`} id={c.id} aria-labelledby={`${c.id}-title`} role="tabpanel" hidden={hidden}>
       <div className="wrap chapter-head">
         <div>
           <p className="place">{c.place}</p>
@@ -84,15 +85,37 @@ function ChapterBlock({ c }: { c: Chapter }) {
 }
 
 export function Timeline() {
+  const [active, setActive] = useState(chapters[0].id);
+  const tabs = useRef<(HTMLButtonElement | null)[]>([]);
+  const select = (id: string, focus = false) => {
+    setActive(id);
+    const i = chapters.findIndex((c) => c.id === id);
+    if (focus) tabs.current[i]?.focus();
+  };
+  const onKey = (e: ReactKeyboardEvent, i: number) => {
+    const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+    if (!d) return;
+    e.preventDefault();
+    select(chapters[(i + d + chapters.length) % chapters.length].id, true);
+  };
   return (
     <div id="timeline">
-      <div className="wrap timeline-head" style={{ paddingBottom: 48 }}>
+      <div className="wrap timeline-head" style={{ paddingBottom: 8 }}>
         <p className="kicker">{timeline.label}</p>
         <h2 className="section-title">{timeline.title}</h2>
         <p className="section-intro">{timeline.intro}</p>
-        <Gantt />
+        <Gantt onSelect={(id) => select(id)} />
+        <div className="matrix-tabs" role="tablist" aria-label="Career chapters">
+          {chapters.map((c, i) => (
+            <button key={c.id} ref={(el) => { tabs.current[i] = el; }} role="tab" id={`tab-${c.id}`} aria-selected={active === c.id}
+              aria-controls={c.id} tabIndex={active === c.id ? 0 : -1} style={{ ["--c" as string]: `var(--${c.colour})` }}
+              onClick={() => select(c.id)} onKeyDown={(e) => onKey(e, i)}>
+              <i aria-hidden="true" />{c.tab}
+            </button>
+          ))}
+        </div>
       </div>
-      {chapters.map((c) => <ChapterBlock key={c.id} c={c} />)}
+      {chapters.map((c) => <ChapterBlock key={c.id} c={c} hidden={active !== c.id} />)}
     </div>
   );
 }

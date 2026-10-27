@@ -20,7 +20,7 @@ html = html.replace(/<link rel="stylesheet"[^>]*href="\.\/assets\/([^"]+\.css)"[
 });
 
 // Preload the Latin subsets used above the fold: Bodoni Moda (headline, upright and italic) and Hanken Grotesk (body).
-const fonts = readdirSync(resolve(root, "dist/assets")).filter((f) => /^(bodoni-moda-latin-opsz-(normal|italic)|hanken-grotesk-latin-wght-normal)-.*\.woff2$/.test(f));
+const fonts = readdirSync(resolve(root, "dist/assets")).filter((f) => /^(geist-latin-wght-normal|jetbrains-mono-latin-wght-normal)-.*\.woff2$/.test(f));
 const preload = fonts.map((f) => `<link rel="preload" href="./assets/${f}" as="font" type="font/woff2" crossorigin>`).join("");
 html = html.replace("</title>", `</title>${preload}`);
 

@@ -42,6 +42,8 @@ export type Chapter = {
   title: string;
   dates: string;
   summary: string;
+  /** Tab label in the career matrix. */
+  tab: string;
   /** Year-month for the timeline chart, e.g. "2021-09". */
   start: string;
   end: string;
@@ -65,6 +67,10 @@ export type ProjectArea = "quant" | "valuation" | "derivatives" | "wealth" | "ma
 
 export type Project = {
   n: string;
+  /** Category badge on the tombstone, e.g. "EQUITY RESEARCH". */
+  badge: string;
+  /** PDF file in the project's GitHub folder, if one is published. */
+  deck?: string;
   /** Folder in github.com/miabeckercooper/finance-portfolio */
   dir: string;
   title: string;

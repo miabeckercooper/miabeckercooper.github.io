@@ -5,7 +5,7 @@ test.describe("no JavaScript", () => {
   test.use({ javaScriptEnabled: false });
   test("prerendered HTML contains every section, the headline and the photos", async ({ page }) => {
     await page.goto("./");
-    await expect(page.getByRole("heading", { level: 1 })).toContainText("Decompose.");
+    await expect(page.getByRole("heading", { level: 1 })).toContainText("Engineering rigour");
     for (const id of SECTIONS) await expect(page.locator(`#${id}`)).toBeAttached();
     await expect(page.locator(".cards > li")).toHaveCount(11);
     await expect(page.locator(".chapter")).toHaveCount(4);
@@ -19,9 +19,9 @@ test.describe("prefers-reduced-motion", () => {
     await page.goto("./");
     const anim = await page.locator(".ticker ul").evaluate((e) => getComputedStyle(e).animationName);
     expect(anim).toBe("none");
-    await expect(page.getByRole("tab")).toHaveCount(0); // models load on approach
+    await expect(page.locator("#models [role=tab]")).toHaveCount(0); // models load on approach
     await page.locator("#models").scrollIntoViewIfNeeded();
-    await expect(page.getByRole("tab")).toHaveCount(4);
+    await expect(page.locator("#models [role=tab]")).toHaveCount(4);
   });
 });
 

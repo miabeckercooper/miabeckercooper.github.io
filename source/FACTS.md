@@ -57,7 +57,7 @@ Not published / do not mention as public: thesis & defence deck (pending), Searc
 Coming later: Strata Intelligence Ventures VC fund PPM (Mia owned exit strategy & portfolio involvement).
 
 ## Website decisions (confirmed by Mia, Oct 2026)
-- Site headline: "Decompose. Model. Stress-test. Decide." (option C). Her own phrasing "Markets are the most interesting machine I've taken apart." stays as the lede.
+- Site headline (Oct 2026, Mia's redesign brief): "Engineering rigour applied to financial markets." The process line Decompose → Model → Stress-test → Decide stays. (Earlier headline: option C, "Decompose. Model. Stress-test. Decide.")
 - Email may be shown on the site: mia.beckercooper@alumni.esade.edu.
 - Publish straight to main at each milestone.
 

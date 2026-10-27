@@ -17,7 +17,8 @@ for (const s of SIZES) {
     await scrollThrough(page);
     const r = await noHorizontalScroll(page);
     expect(r.scrollWidth).toBeLessThanOrEqual(r.innerWidth);
-    for (const id of ["esade", "models", "projects", "leadership", "about"]) {
+    await page.getByRole("tab", { name: /02 MSc Finance/ }).click();
+    for (const id of ["research", "esade", "models", "projects", "leadership", "about"]) {
       await page.evaluate((i) => document.getElementById(i)!.scrollIntoView({ behavior: "instant" }), id);
       await page.waitForTimeout(700);
       await page.screenshot({ path: `docs/screenshots/${s.name}-${id}.png` });

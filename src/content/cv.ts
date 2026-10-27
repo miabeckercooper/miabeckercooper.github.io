@@ -10,10 +10,11 @@ export const GITHUB_PROJECTS = "https://github.com/miabeckercooper/finance-portf
 export const identity = {
   name: "Mia Becker-Cooper",
   monogram: "MBC",
-  eyebrow: "Mechanical engineer turned finance professional, Copenhagen & Barcelona",
-  headline: ["Decompose.", "Model.", "Stress-test.", "Decide."],
+  eyebrow: "Copenhagen & Barcelona · CEMS MIM at CBS",
+  headline: ["Engineering rigour applied", "to financial markets."],
+  process: ["Decompose", "Model", "Stress-test", "Decide"],
   lede:
-    "Markets are the most interesting machine I've taken apart. I trained as a mechanical engineer at Bristol, moved into finance at ESADE, and build the tools behind investment decisions: risk workbooks, valuations and systematic backtests.",
+    "Mechanical engineer (BEng, Bristol) turned MSc Finance (ESADE, 8.5/10). I build risk workbooks, systematic backtests and valuation models, and I check every number before anyone else has to.",
   targets: ["Wealth management", "Private equity", "Venture capital", "Hedge funds"],
   availability: "Available from June 2027",
   linkedin: "https://www.linkedin.com/in/miabecker-cooper/",
@@ -44,15 +45,15 @@ export const kpis: Kpi[] = [
 
 /** Scrolling highlights band under the hero. */
 export const ticker = [
-  "ANDBank Monaco ▲ 30 client portfolios",
-  "Reporting prep ▼ ~95%",
-  "Substrate Capital ▲ deflated Sharpe 0.84 (simulated)",
-  "IAG ▲ BUY, target €8.07",
-  "Nike ▲ management case $69.05",
-  "Futures challenge ▲ +13.40%, 4th place",
-  "Bloomberg challenge ▲ +3.1 pp vs benchmark",
-  "MSc thesis ▲ 85%",
-];
+  "ANDBANK ▲ 30 client portfolios measured",
+  "REPORTING PREP ▼ ~95%",
+  "IAG ▲ BUY · target €8.07",
+  "SUBSTRATE ▲ deflated Sharpe 0.84 (sim.)",
+  "FUTURES ▲ +13.40% · 4th place",
+  "BLOOMBERG ▲ +3.1 pp vs B500",
+  "NIKE ▲ management case $69.05",
+  "MSC THESIS ▲ 85%",
+]
 
 /* ---------------- Selected research: chart previews from real numbers ---------------- */
 
@@ -94,7 +95,7 @@ export const thesis = {
 export const chapters: Chapter[] = [
   {
     id: "bristol",
-    colour: "steel", start: "2021-09", end: "2024-07", short: "BEng, Bristol",
+    colour: "steel", tab: "01 Engineering", start: "2021-09", end: "2024-07", short: "BEng, Bristol",
     place: "University of Bristol",
     title: "BEng Mechanical Engineering",
     dates: "Sep 2021 – Jul 2024",
@@ -108,7 +109,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: "esade",
-    colour: "violet", start: "2025-08", end: "2026-06", short: "MSc Finance, ESADE",
+    colour: "violet", tab: "02 MSc Finance", start: "2025-08", end: "2026-06", short: "MSc Finance, ESADE",
     place: "ESADE, Barcelona",
     title: "MSc in Finance",
     dates: "Aug 2025 – Jun 2026",
@@ -128,7 +129,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: "andbank",
-    colour: "green", start: "2026-06", end: "2026-08", short: "ANDBank Monaco",
+    colour: "green", tab: "03 Wealth Mgmt", start: "2026-06", end: "2026-08", short: "ANDBank Monaco",
     place: "ANDBank Monaco",
     title: "Investment & Portfolio Risk Management Intern",
     dates: "Jun – Aug 2026",
@@ -144,7 +145,7 @@ export const chapters: Chapter[] = [
   },
   {
     id: "cbs",
-    colour: "ember", start: "2026-09", end: "2027-07", short: "CEMS MIM, CBS",
+    colour: "ember", tab: "04 CEMS MIM", start: "2026-09", end: "2027-07", short: "CEMS MIM, CBS",
     place: "Copenhagen Business School",
     title: "CEMS Master's in International Management",
     dates: "Sep 2026 – Jul 2027",
@@ -321,7 +322,7 @@ export const deals = {
 
 export const projects: Project[] = [
   {
-    n: "01", dir: "01-substrate-capital", title: "Substrate Capital", area: "quant",
+    n: "01", badge: "QUANT · PYTHON", deck: "Substrate_Capital_Pitch.pdf", dir: "01-substrate-capital", title: "Substrate Capital", area: "quant",
     course: "Asset Management", date: "Jun 2026",
     summary:
       "A systematic 130/30 long-short fund in AI infrastructure: 58 names, a random forest on 15 features, an HMM regime overlay, walk-forward testing with a 2-month embargo and 15 bps per side costs.",
@@ -340,7 +341,7 @@ export const projects: Project[] = [
     simulated: true,
   },
   {
-    n: "02", dir: "02-bloomberg-trading-challenge", title: "Bloomberg Trading Challenge", area: "quant",
+    n: "02", badge: "TRADING", deck: "Bloomberg_Trading_Challenge_Report.pdf", dir: "02-bloomberg-trading-challenge", title: "Bloomberg Trading Challenge", area: "quant",
     course: "Asset Pricing", date: "6–20 Mar 2026",
     summary: "A €100M book managed over two weeks against the B500 benchmark, with 54.3% held in cash.",
     hero: { value: "+3.1 pp", label: "vs benchmark" },
@@ -356,7 +357,7 @@ export const projects: Project[] = [
     shots: ["s02-p1", "s02-p3", "s02-p6", "s02-p9"],
   },
   {
-    n: "03", dir: "03-iag-equity-valuation", title: "IAG equity valuation", area: "valuation",
+    n: "03", badge: "EQUITY RESEARCH · DCF", deck: "IAG_Valuation_Report.pdf", dir: "03-iag-equity-valuation", title: "IAG equity valuation", area: "valuation",
     course: "Corporate Valuation", date: "Mar 2026",
     summary: "A BUY call on International Airlines Group built on a DCF at a 7.2% WACC, with terminal value at 61% of EV.",
     hero: { value: "€8.07", label: "BUY target vs €4.60 (+75%)" },
@@ -370,7 +371,7 @@ export const projects: Project[] = [
     shots: ["s03-p1", "s03-p6", "s03-p7", "s03-p8"],
   },
   {
-    n: "04", dir: "04-nike-activist-valuation", title: "Nike activist valuation", area: "valuation",
+    n: "04", badge: "VALUATION · MONTE CARLO", deck: "Nike_Valuation_Report.pdf", dir: "04-nike-activist-valuation", title: "Nike activist valuation", area: "valuation",
     course: "Finance Project, Prof. Batlloria", date: "22 Mar 2026",
     summary: "Management's side in an activist negotiation: three valuations, then a Monte Carlo on the management case.",
     hero: { value: "$69.05", label: "management case vs $52.40" },
@@ -385,7 +386,7 @@ export const projects: Project[] = [
     shots: ["s04-p3", "s04-p8", "s04-p9", "s04-p10"],
   },
   {
-    n: "05", dir: "05-nike-financial-analysis", title: "Nike strategic & financial analysis", area: "valuation",
+    n: "05", badge: "FINANCIAL ANALYSIS", deck: "Nike_Strategic_and_Financial_Analysis.pdf", dir: "05-nike-financial-analysis", title: "Nike strategic & financial analysis", area: "valuation",
     course: "Finance Project", date: "2026",
     summary: "A DuPont breakdown of Nike's returns and what drove ROE down.",
     hero: { value: "21.1%", label: "ROIC (2024)" },
@@ -395,7 +396,7 @@ export const projects: Project[] = [
     shots: ["s05-p1", "s05-p10", "s05-p12", "s05-p14"],
   },
   {
-    n: "06", dir: "06-derivatives-pricing", title: "Derivatives group assignment", area: "derivatives",
+    n: "06", badge: "DERIVATIVES", deck: "Derivatives_Group_Assignment.pdf", dir: "06-derivatives-pricing", title: "Derivatives group assignment", area: "derivatives",
     course: "Derivatives, Prof. Carlo Sala", date: "Mar 2026",
     summary: "10 problems, including a GBM simulation with S0 100, μ 0.30, σ 0.38 over T 5 years on 100,000 paths.",
     hero: { value: "100,000", label: "simulated GBM paths" },
@@ -406,7 +407,7 @@ export const projects: Project[] = [
     simulated: true,
   },
   {
-    n: "07", dir: "07-fixed-income-duration-convexity", title: "Fixed income: duration & convexity", area: "derivatives",
+    n: "07", badge: "FIXED INCOME", deck: "Fixed_Income_Duration_Convexity.pdf", dir: "07-fixed-income-duration-convexity", title: "Fixed income: duration & convexity", area: "derivatives",
     course: "Fixed Income", date: "2026",
     summary: "Duration, convexity, immunisation and a butterfly trade.",
     hero: { value: "Butterfly", label: "duration, convexity, immunisation" },
@@ -416,7 +417,7 @@ export const projects: Project[] = [
     shots: ["s07-p1", "s07-p4", "s07-p5", "s07-p8"],
   },
   {
-    n: "08", dir: "08-private-client-portfolio", title: "Private client portfolio", area: "wealth",
+    n: "08", badge: "PORTFOLIO CONSTRUCTION", deck: "Private_Client_Portfolio.pdf", dir: "08-private-client-portfolio", title: "Private client portfolio", area: "wealth",
     course: "Investments", date: "Nov 2025",
     summary: "A portfolio built for a private client, with a higher Sharpe than the comparison portfolio.",
     hero: { value: "1.117", label: "Sharpe vs 0.836" },
@@ -426,7 +427,7 @@ export const projects: Project[] = [
     shots: ["s08-p1", "s08-p3", "s08-p10", "s08-p13"],
   },
   {
-    n: "09", dir: "09-swiss-family-office-portfolio", title: "Swiss single-family office", area: "wealth",
+    n: "09", badge: "WEALTH MANAGEMENT", dir: "09-swiss-family-office-portfolio", title: "Swiss single-family office", area: "wealth",
     course: "Investing in Capital Markets, University of St. Gallen", date: "Jan 2026",
     summary: "A CHF 500M family office with CHF 5M a year of liquidity needs, a 10.4% target and ~60% in illiquid assets.",
     hero: { value: "CHF 500M", label: "family office mandate" },
@@ -441,7 +442,7 @@ export const projects: Project[] = [
     note: "Only the cover is shown; the full PDF is being re-exported.",
   },
   {
-    n: "10", dir: "10-central-banks-fed-vs-ecb", title: "Central banks: Fed vs ECB", area: "macro",
+    n: "10", badge: "MACRO", deck: "Central_Banks_Fed_vs_ECB.pdf", dir: "10-central-banks-fed-vs-ecb", title: "Central banks: Fed vs ECB", area: "macro",
     course: "Investments", date: "Nov 2025",
     summary: "A comparison of the Federal Reserve and the European Central Bank.",
     hero: { value: "Fed vs ECB", label: "monetary policy compared" },
@@ -451,7 +452,7 @@ export const projects: Project[] = [
     shots: ["s10-p1", "s10-p4", "s10-p5", "s10-p6"],
   },
   {
-    n: "11", dir: "11-two-week-trading-challenge", title: "Two-week futures trading challenge", area: "quant",
+    n: "11", badge: "FUTURES TRADING", deck: "Two_Week_Trading_Challenge_Report.pdf", dir: "11-two-week-trading-challenge", title: "Two-week futures trading challenge", area: "quant",
     course: "Derivatives", date: "Feb 2026",
     summary:
       "Index futures (ES/MES/NQ/MNQ), gold, silver and FX, traded on EMA pullback and failed-breakout setups with at least 2:1 reward to risk.",

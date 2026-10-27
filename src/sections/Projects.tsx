@@ -94,7 +94,7 @@ export function Projects() {
               <li key={p.n}>
                 <button type="button" className="card" onClick={() => open(p)} aria-haspopup="dialog">
                   <span className="shot"><Shot name={p.shots[0]} alt="" sizes="(max-width: 600px) 92vw, 300px" /></span>
-                  <span className={`area ${p.area}`}>{areaLabel(p.area)}</span>
+                  <span className="badge-t">[{p.badge}]</span>
                   <h3>{p.title}</h3>
                   <span className="fig">{p.hero.value}</span>
                   <span className="cap">{p.hero.label}</span>

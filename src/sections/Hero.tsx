@@ -7,12 +7,14 @@ export function Hero() {
     <section className="hero" id="top" aria-labelledby="hero-title">
       <div className="wrap">
         <div>
-          <p className="hero-name">{identity.name} <span className="avail">{identity.availability}</span></p>
+          <p className="hero-name">{identity.name} <span className="avail">{identity.eyebrow}</span></p>
           <h1 id="hero-title" className="display">
             {identity.headline.map((w) => <span key={w}>{w}</span>)}
           </h1>
-          <p className="eyebrow">{identity.eyebrow}</p>
           <p className="lede">{identity.lede}</p>
+          <p className="proc" aria-label={`Process: ${identity.process.join(", ")}`}>
+            {identity.process.map((p, i) => <span key={p}>{i > 0 && <i aria-hidden="true">→ </i>}<b>{p.toUpperCase()}</b></span>)}
+          </p>
           <Kpis items={kpis} />
           <div className="btns">
             <a className="btn solid" href="#timeline">See my timeline</a>

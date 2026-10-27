@@ -10,6 +10,7 @@ test("skip link is first and visibly focused", async ({ page }) => {
 
 test("timeline: strips scroll with buttons and moments open the viewer from the keyboard", async ({ page }) => {
   await page.goto("./");
+  await page.getByRole("tab", { name: /02 MSc Finance/ }).click();
   const strip = page.locator("#esade .strip");
   await strip.scrollIntoViewIfNeeded();
   const before = await strip.evaluate((e) => e.scrollLeft);

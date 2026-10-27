@@ -7,7 +7,7 @@ const ym = (s: string) => { const [y, m] = s.split("-").map(Number); return y * 
  * Exhibit 1: the four chapters as bars on a real date axis, so overlaps and gaps are visible.
  * Each bar links to its chapter below.
  */
-export function Gantt() {
+export function Gantt({ onSelect }: { onSelect?: (id: string) => void }) {
   const first = Math.min(...chapters.map((c) => ym(c.start)));
   const last = Math.max(...chapters.map((c) => ym(c.end))) + 1;
   const firstYear = Math.floor(first / 12), lastYear = Math.ceil(last / 12);
@@ -31,7 +31,7 @@ export function Gantt() {
           const y0 = top + i * row;
           const x0 = x(ym(c.start)), x1 = x(ym(c.end) + 1);
           return (
-            <a key={c.id} href={`#${c.id}`} aria-label={`${c.short}, ${c.dates}`}>
+            <a key={c.id} href={`#${c.id}`} aria-label={`${c.short}, ${c.dates}`} onClick={(e) => { if (onSelect) { e.preventDefault(); onSelect(c.id); } }}>
               <text className="rowlbl" x={0} y={y0 + 22}>{c.short}</text>
               <rect className="bar" x={x0} y={y0 + 6} width={Math.max(8, x1 - x0)} height={24} rx={6} fill={`var(--${c.colour})`} />
             </a>

@@ -1,10 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot, hydrateRoot } from "react-dom/client";
-import "@fontsource-variable/bodoni-moda/opsz.css";
-import "@fontsource-variable/bodoni-moda/opsz-italic.css";
-import "@fontsource-variable/hanken-grotesk/index.css";
+import "@fontsource-variable/geist/index.css";
+import "@fontsource-variable/jetbrains-mono/index.css";
 import "./styles/tokens.css";
 import "./styles/base.css";
+import "./styles/terminal.css";
 import { App } from "./App";
 import { startAnalytics } from "./lib/analytics";
 

@@ -44,9 +44,39 @@ export default function Viewer({ index, onClose }: { index: number; onClose: () 
 
   const touch = useRef<number | null>(null);
 
+  const deckUrl = p.deck ? `https://github.com/miabeckercooper/finance-portfolio/blob/main/${p.dir}/${p.deck}` : null;
+
   return createPortal(
     <div className="viewer" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div className="vbox" ref={boxRef} role="dialog" aria-modal="true" aria-labelledby="v-title">
+        <div className="vinfo">
+          <button ref={closeRef} type="button" className="vclose" onClick={onClose} aria-label="Close project">✕</button>
+          <p className="kicker">[{p.badge}] · {p.date}</p>
+          <h2 id="v-title">{p.title}</h2>
+          <p className="muted" style={{ color: "var(--ink-2)" }}>{p.course}</p>
+          {p.simulated && <span className="sim-tag">Simulated results</span>}
+          <p className="vsec">Key thesis</p>
+          <p>{p.summary}</p>
+          <p className="vsec">Inputs and results</p>
+          <dl className="vfigs">
+            {[p.hero, ...p.figures].map((f) => (
+              <div key={f.value + f.label}>
+                <dt>{f.label}</dt>
+                <dd>{f.value}</dd>
+              </div>
+            ))}
+          </dl>
+          <dl className="vmeta">
+            <div><dt>Team</dt><dd><TextOrTodo value={p.team} /></dd></div>
+            <div><dt>My role</dt><dd><TextOrTodo value={p.role} /></dd></div>
+            {p.note && <div><dt>Note</dt><dd>{p.note}</dd></div>}
+          </dl>
+          <div className="vlinks">
+            {deckUrl && <a className="btn solid" href={deckUrl} target="_blank" rel="noopener">Open the full PDF <span aria-hidden="true">↗</span></a>}
+            <a className="btn" href={GITHUB_PROJECTS + p.dir} target="_blank" rel="noopener">{deals.github} <span aria-hidden="true">↗</span></a>
+          </div>
+          <p className="vsec">The work, page by page</p>
+        </div>
         <div className="vstage">
           <div
             className="vimg"
@@ -58,7 +88,7 @@ export default function Viewer({ index, onClose }: { index: number; onClose: () 
               touch.current = null;
             }}
           >
-            <Shot key={p.shots[page]} name={p.shots[page]} alt={`${p.title}, page ${page + 1} of ${n}`} sizes="(max-width: 820px) 100vw, 680px" eager />
+            <Shot key={p.shots[page]} name={p.shots[page]} alt={`${p.title}, page ${page + 1} of ${n}`} sizes="(max-width: 760px) 100vw, 700px" eager />
           </div>
           <div className="vnav">
             <button type="button" onClick={() => go(-1)} disabled={n < 2}><span aria-hidden="true">←</span> Previous page</button>
@@ -76,29 +106,6 @@ export default function Viewer({ index, onClose }: { index: number; onClose: () 
               ))}
             </ul>
           )}
-        </div>
-        <div className="vinfo">
-          <button ref={closeRef} type="button" className="vclose" onClick={onClose} aria-label="Close viewer">✕</button>
-          <p className="kicker">{p.course} · {p.date}</p>
-          <h2 id="v-title">{p.title}</h2>
-          {p.simulated && <span className="sim-tag">Simulated results</span>}
-          <p>{p.summary}</p>
-          <dl className="vfigs">
-            {[p.hero, ...p.figures].map((f) => (
-              <div key={f.value + f.label}>
-                <dt>{f.label}</dt>
-                <dd>{f.value}</dd>
-              </div>
-            ))}
-          </dl>
-          <dl className="vmeta">
-            <div><dt>Team</dt><dd><TextOrTodo value={p.team} /></dd></div>
-            <div><dt>My role</dt><dd><TextOrTodo value={p.role} /></dd></div>
-            {p.note && <div><dt>Note</dt><dd>{p.note}</dd></div>}
-          </dl>
-          <a className="btn solid" href={GITHUB_PROJECTS + p.dir} target="_blank" rel="noopener">
-            {deals.github} <span aria-hidden="true">↗</span>
-          </a>
         </div>
       </div>
     </div>,

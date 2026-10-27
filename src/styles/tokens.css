@@ -1,60 +1,47 @@
 /*
- * Layout: an analyst's annual report. White pages with navy ink and one violet accent; each section has its own
- * treatment (chart, dark process sheet, exhibits, table, lavender team page) instead of saturated colour blocks.
+ * Layout: an institutional terminal. Obsidian background, glass surfaces with 1px slate borders, crisp white
+ * headings, slate body text, Bloomberg amber for live figures and quant green for status and gains.
+ * A deliberate single dark look (no light theme), so every colour is set here once.
  */
 :root {
-  --paper: #FFFFFF;
-  --paper-2: #F5F4FA;
-  --ink: #141A33;
-  --ink-2: #4E5370;
-  --line: #E1E0EC;
-  --tint: #ECE8FA;
-  --accent: #5A3FC0;
-  --accent-fill: #5A3FC0;
-  --focus: #5A3FC0;
+  --paper: #080B10;
+  --paper-2: rgba(255, 255, 255, 0.03);
+  --surface-solid: #0D121B;
+  --ink: #F8FAFC;
+  --ink-2: #94A3B8;
+  --line: #1E293B;
+  --line-2: #334155;
+  --tint: #0C1220;
+  --accent: #FF9F0A;
+  --accent-fill: #FF9F0A;
+  --on-accent: #080B10;
+  --focus: #FF9F0A;
+  --glow: 0 0 0 1px rgba(255, 159, 10, 0.55), 0 0 24px -4px rgba(255, 159, 10, 0.35);
 
-  /* Dark "process sheet" surfaces (method, ticker, contact): the same in both themes. */
-  --navy: #141A33;
-  --navy-2: #1E2547;
-  --on-navy: #EEF0F8;
-  --on-navy-2: #B5BAD3;
-  --lilac: #B9A8FF;
+  --navy: #05070B;
+  --navy-2: #1E293B;
+  --on-navy: #F8FAFC;
+  --on-navy-2: #94A3B8;
+  --lilac: #FF9F0A;
 
-  /* Chapter accents, used only as thin marks and chart bars. */
-  --steel: #2F5D9B;
-  --violet: #5A3FC0;
-  --green: #0E7A4F;
-  --ember: #B8430C;
+  --steel: #60A5FA;
+  --violet: #A78BFA;
+  --green: #10B981;
+  --ember: #FF9F0A;
 
-  /* Names the live-model charts read. */
-  --sheet: var(--paper);
+  --sheet: #0D121B;
   --rule: var(--line);
-  --grid: rgba(90, 63, 192, 0.06);
-  --brass: #8A5A00;
-  --gain: #0E7A4F;
-  --loss: #C2341C;
+  --grid: rgba(148, 163, 184, 0.06);
+  --brass: #FF9F0A;
+  --gain: #10B981;
+  --loss: #F87171;
 
-  --display: "Bodoni Moda Variable", "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
-  --body: "Hanken Grotesk Variable", "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --display: "Geist Variable", "Geist", "SF Pro Display", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --body: "Geist Variable", "Geist", "SF Pro Text", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  --radius: 20px;
-  --radius-sm: 12px;
-  --header-h: 64px;
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #0F1328; --paper-2: #161B36; --ink: #EEF0F8; --ink-2: #B5BAD3; --line: #2A3054; --tint: #1F2148;
-    --accent: #B9A8FF; --focus: #B9A8FF; --navy: #070A1A; --navy-2: #12162E;
-    --steel: #7FA6E0; --violet: #B9A8FF; --green: #4CC793; --ember: #F08A55;
-    --grid: rgba(185, 168, 255, 0.07); --brass: #F2B566; --gain: #4CC793; --loss: #FF8A73;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #0F1328; --paper-2: #161B36; --ink: #EEF0F8; --ink-2: #B5BAD3; --line: #2A3054; --tint: #1F2148;
-  --accent: #B9A8FF; --focus: #B9A8FF; --navy: #070A1A; --navy-2: #12162E;
-  --steel: #7FA6E0; --violet: #B9A8FF; --green: #4CC793; --ember: #F08A55;
-  --grid: rgba(185, 168, 255, 0.07); --brass: #F2B566; --gain: #4CC793; --loss: #FF8A73;
+  --radius: 14px;
+  --radius-sm: 10px;
+  --header-h: 60px;
   color-scheme: dark;
 }

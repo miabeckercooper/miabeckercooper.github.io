@@ -4,7 +4,7 @@ import { scrollThrough } from "./helpers";
 
 const serious = <T extends { impact?: string | null }>(v: T[]) => v.filter((x) => x.impact === "serious" || x.impact === "critical");
 
-for (const scheme of ["light", "dark"] as const) {
+for (const scheme of ["dark"] as const) {
   test(`axe ${scheme}: 0 serious or critical`, async ({ page }) => {
     await page.emulateMedia({ colorScheme: scheme, reducedMotion: "reduce" });
     await page.goto("./");
