@@ -9,7 +9,7 @@ Sources: Mia's CV (source/cv/), final project reports (github.com/miabeckercoope
 - GitHub: https://github.com/miabeckercooper · projects: https://github.com/miabeckercooper/finance-portfolio
 - CV (phone removed, public): https://github.com/miabeckercooper/miabeckercooper/blob/main/Mia_Becker-Cooper_CV.pdf (also in source/cv/)
 - Email on CV: mia.beckercooper@alumni.esade.edu. NEVER show a phone number anywhere.
-- Based: Copenhagen and Barcelona. Nationality German, EU work permit. Available summer 2027.
+- Based: Copenhagen and Barcelona. Nationality German, EU work permit. Available from June 2027 (internship or graduate role).
 - Languages: English (native), French (fluent), German (intermediate), Spanish (beginner). Three languages plus learning Spanish. Not five.
 - Target roles: wealth management, private equity, venture capital, hedge funds.
 - Positioning: mechanical engineer who moved into finance and builds the tools behind investment decisions.

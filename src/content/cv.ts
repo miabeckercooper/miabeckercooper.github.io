@@ -15,7 +15,7 @@ export const identity = {
   lede:
     "Markets are the most interesting machine I've taken apart. I trained as a mechanical engineer at Bristol, moved into finance at ESADE, and build the tools behind investment decisions: risk workbooks, valuations and systematic backtests.",
   targets: ["Wealth management", "Private equity", "Venture capital", "Hedge funds"],
-  availability: "Available summer 2027",
+  availability: "Available from June 2027",
   linkedin: "https://www.linkedin.com/in/miabecker-cooper/",
   github: "https://github.com/miabeckercooper",
   projects: "https://github.com/miabeckercooper/finance-portfolio",
