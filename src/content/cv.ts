@@ -119,7 +119,7 @@ export const chapters: Chapter[] = [
       { date: "Nov 2025", title: "Central banks: Fed vs ECB", body: "A comparison of the Federal Reserve and the European Central Bank.", project: "10" },
       { date: "Jan 2026", title: "University of St. Gallen", body: "Investing in Capital Markets: a CHF 500M Swiss single-family office.", project: "09" },
       { date: "Feb 2026", title: "Futures trading challenge", metric: "+13.40%", metricLabel: "in two weeks, 4th place", project: "11" },
-      { date: "Mar 2026", title: "Bloomberg Trading Challenge", metric: "+3.1 pp", metricLabel: "vs the B500 benchmark on a €100M book", project: "02" },
+      { date: "Mar 2026", title: "Bloomberg Trading Challenge", metric: "+3.1 pp", metricLabel: "vs the B500 benchmark on a simulated €100M book", project: "02" },
       { date: "Mar 2026", title: "IAG equity valuation", metric: "€8.07", metricLabel: "BUY target vs €4.60 (+75%)", project: "03" },
       { date: "Mar 2026", title: "Nike activist valuation", metric: "$69.05", metricLabel: "management case vs $52.40", project: "04" },
       { date: "Jun 2026", title: "Substrate Capital", metric: "0.84", metricLabel: "deflated Sharpe, systematic 130/30 (simulated)", project: "01" },
