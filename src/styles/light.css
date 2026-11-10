@@ -1,0 +1,117 @@
+/* Light report layer on top of base.css: type, data, sections and the parts the browser draws. */
+
+/* Browser surfaces */
+::selection { background: rgba(91, 63, 208, 0.18); color: var(--ink); }
+html { scrollbar-color: var(--line-2) var(--paper); caret-color: var(--accent); accent-color: var(--accent); }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--paper); }
+::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 999px; border: 2px solid var(--paper); }
+a { text-decoration-color: rgba(91, 63, 208, 0.45); text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
+.icon { display: inline-block; vertical-align: -0.15em; flex: 0 0 auto; }
+
+/* Type: one sans voice; mono only for numbers, formulas and the tape */
+.section-title, .chapter h3, .lab h3, .rcard h3, .vinfo h2, .facts-cols h3, .process .t { font-family: var(--display); font-weight: 650; letter-spacing: -0.025em; }
+.section-title { font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: 1.04; margin-top: 0; }
+.figures b, .moment .metric, .card .fig, .big, .stat b, .vfigs dd, .bar .row b, .rangehead b, table.heat, .ptable td.num, .portrait .tag b, .rc-big, .rc-t, .gantt .tick, .chapter .dates, .ticker li, .process .f { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.figures b, .moment .metric, .card .fig, .big, .stat b, .vfigs dd { letter-spacing: -0.03em; font-weight: 600; }
+
+/* Market tape */
+.ticker { background: var(--navy); color: var(--on-navy); border: 0; padding-block: 9px; }
+.ticker li { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.02em; color: var(--on-navy-2); }
+.ticker li .up, .ticker li .dn { color: #7EE2B8; }
+
+/* Header with status */
+.top { background: rgba(255, 255, 255, 0.92); border-bottom: 1px solid var(--line); }
+body::before { background: var(--navy); }
+.wordmark { font-family: var(--display); font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em; }
+.wordmark i { font-style: normal; color: var(--accent); font-weight: 600; }
+.nav .pill.solid { background: var(--accent-fill); color: var(--on-accent); }
+.status { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 600; color: var(--ink); background: var(--paper-2); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; margin-right: 6px; white-space: nowrap; }
+.status i { width: 8px; height: 8px; border-radius: 50%; background: var(--gain); box-shadow: 0 0 0 3px rgba(14, 122, 79, 0.18); }
+@media (max-width: 700px) { .status span { display: none; } .status { padding: 8px; } }
+
+/* Hero */
+.hero h1 { font-family: var(--display); font-weight: 700; letter-spacing: -0.04em; line-height: 1.0; font-size: clamp(2.6rem, min(6.2vw, 10vh), 5.6rem); }
+.hero h1 span:last-child { font-style: normal; color: var(--accent); }
+.hero .lede { color: var(--ink-2); font-size: 1.12rem; max-width: 60ch; }
+.hero .proc { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; color: var(--ink-2); margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+.hero .proc b { color: var(--ink); font-weight: 700; }
+.hero .proc i { color: var(--accent); font-style: normal; }
+.hero-name .avail { background: var(--paper-2); border: 1px solid var(--line); }
+.hero-name .avail::before { background: var(--accent); }
+.figures { border: 0; gap: 12px; }
+.figures li, .figures li + li { background: var(--surface-solid); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; transition: box-shadow .3s cubic-bezier(.16,1,.3,1), transform .3s cubic-bezier(.16,1,.3,1); }
+.figures li:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.figures li:nth-child(n+3) { border-top: 1px solid var(--line); }
+.figures span.lbl { font-size: 0.8rem; }
+.portrait::before { background: var(--tint); }
+.portrait .arch { border: 1px solid var(--line); }
+.portrait .tag { border: 1px solid var(--line); }
+
+/* Cards and surfaces: real offset shadows on hover, no glow */
+.card { border: 1px solid var(--line-2); background: var(--surface-solid); }
+.card:hover, button.moment:hover { box-shadow: var(--shadow); }
+.rcard:hover .rchart { box-shadow: var(--shadow); }
+.badge-t { display: inline-block; align-self: flex-start; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; color: var(--accent); background: var(--tint); border-radius: 4px; padding: 3px 7px; }
+.card .badge-t { margin-inline: 8px; }
+.rcard { border-top-color: var(--ink); }
+.rsrc { font-style: normal; }
+.moment { background: var(--surface-solid); }
+.chapter:nth-of-type(odd) .moment { background: var(--surface-solid); }
+.tab[aria-selected="true"] { color: var(--accent); }
+.viewtoggle button[aria-pressed="true"] { color: var(--on-accent); }
+
+/* Career matrix tabs */
+.matrix-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.matrix-tabs button { font-size: 0.9rem; font-weight: 600; border: 1px solid var(--line); background: var(--surface-solid); color: var(--ink-2); border-radius: 999px; padding: 0 16px; min-height: 44px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.matrix-tabs button i { width: 9px; height: 9px; border-radius: 2px; background: var(--c); }
+.matrix-tabs button[aria-selected="true"] { color: var(--ink); border-color: var(--c); background: color-mix(in srgb, var(--c) 8%, white); }
+.chapter { border-top: 0; background: transparent !important; padding-block: 24px 64px; }
+.gantt a { cursor: pointer; }
+
+/* Method: a deep-violet process sheet with the maths */
+.method { background: var(--navy); color: var(--on-navy); }
+.method .section-intro { color: var(--on-navy-2); }
+.process li + li { border-left-color: var(--navy-2); }
+.process .t::before { background: var(--lilac); color: var(--navy); font-family: var(--body); }
+.process .f { font-style: normal; font-size: 0.9rem; color: var(--lilac); background: rgba(255, 255, 255, 0.06); border: 1px solid var(--navy-2); }
+.process .ex { color: var(--on-navy-2); }
+.process .src { color: var(--on-navy-2); }
+
+/* Leadership on lavender */
+.leadership { background: var(--tint); }
+.lead-poster { border: 1px solid var(--line-2); }
+
+/* About: hobbies as a plain list, languages as labels */
+.hobbies li { grid-template-columns: minmax(0, 1fr); padding: 16px 16px 16px 0; background: transparent; border-radius: 0; }
+.hobbies h3 { font-size: 1.05rem; }
+.langs { display: grid; gap: 8px; }
+.langs div { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+.persona b { font-family: var(--mono); }
+
+/* Contact on deep violet */
+.contact, footer.foot { background: var(--navy); }
+.contact h2 { font-family: var(--display); font-weight: 700; letter-spacing: -0.04em; }
+.contact h2 em { font-style: normal; color: var(--lilac); }
+.contact .targets { color: var(--lilac); margin-top: 12px; }
+.contact .btn.solid { background: var(--paper); color: var(--navy); border-color: var(--paper); }
+footer.foot .wrap { border-top-color: var(--navy-2); }
+
+/* Project drawer: slides in from the right */
+.viewer { place-items: stretch end; padding: 0; background: rgba(18, 20, 43, 0.45); animation: fade-in .25s ease both; }
+.vbox { width: min(760px, 100%); height: 100%; max-height: none; border-radius: 0; background: var(--surface-solid); display: flex; flex-direction: column; animation: slide-in .4s cubic-bezier(.16,1,.3,1) both; box-shadow: -24px 0 60px -30px rgba(18, 20, 43, 0.5); padding-bottom: env(safe-area-inset-bottom, 0px); }
+@keyframes slide-in { from { transform: translateX(48px); opacity: 0; } }
+@keyframes fade-in { from { opacity: 0; } }
+.vinfo { padding-top: calc(28px + env(safe-area-inset-top, 0px)); }
+.vstage { background: transparent; padding: 0 26px 26px; }
+.vclose { top: calc(16px + env(safe-area-inset-top, 0px)); display: grid; place-items: center; }
+.vmeta-line { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; color: var(--ink-2); font-size: 0.95rem; }
+.vsec { font-size: 1rem; font-weight: 700; margin-top: 10px; }
+.vlinks { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn .icon, .rcta .icon, .open .icon { transition: transform .3s cubic-bezier(.16,1,.3,1); }
+.btn:hover .icon, .rcta:hover .icon, button.moment:hover .open .icon { transform: translateX(3px); }
+.verdict .icon { margin-right: 2px; }
+
+@media (prefers-reduced-motion: reduce) { .vbox, .viewer { animation: none; } }
+.hobbies li { display: block; }
+.hobbies li p { margin-top: 4px; }

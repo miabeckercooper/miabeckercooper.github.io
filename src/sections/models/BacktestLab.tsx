@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { models } from "../../content/cv";
+import { Icon } from "../../ui/Icon";
 
 const B = models.backtest;
 const SCALE = 1.2;
@@ -40,7 +41,7 @@ export function BacktestLab() {
           <Bar label="Max drawdown" value={`${v.maxDd}%`} pct={Math.abs(v.maxDd) * 2} neg />
         </div>
         <span className={`verdict ${survives ? "pass" : "fail"}`}>
-          {survives ? "✓ Survives deflation" : "✕ Indistinguishable from noise"}
+          {survives ? <><Icon name="check" /> Survives deflation</> : <><Icon name="close" /> Indistinguishable from noise</>}
         </span>
         <p className="note" style={{ marginTop: 10 }}>{v.verdict}</p>
         {v.pitched && (

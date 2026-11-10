@@ -1,6 +1,7 @@
 import { identity, kpis } from "../content/cv";
 import { Kpis } from "../ui/Kpis";
 import { Photo } from "../ui/Photo";
+import { Icon } from "../ui/Icon";
 
 export function Hero() {
   return (
@@ -13,7 +14,7 @@ export function Hero() {
           </h1>
           <p className="lede">{identity.lede}</p>
           <p className="proc" aria-label={`Process: ${identity.process.join(", ")}`}>
-            {identity.process.map((p, i) => <span key={p}>{i > 0 && <i aria-hidden="true">→ </i>}<b>{p.toUpperCase()}</b></span>)}
+            {identity.process.map((p, i) => <span key={p}>{i > 0 && <i aria-hidden="true"><Icon name="arrow-right" size={12} /> </i>}<b>{p.toUpperCase()}</b></span>)}
           </p>
           <Kpis items={kpis} />
           <div className="btns">

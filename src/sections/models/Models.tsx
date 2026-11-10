@@ -12,7 +12,6 @@ export function Models() {
       <div className="wrap">
         <div className="sec-top">
           <div>
-            <p className="kicker">{models.label}</p>
             <h2 className="section-title" id="models-title">{models.title}</h2>
           </div>
           <p className="section-intro">{models.intro}</p>

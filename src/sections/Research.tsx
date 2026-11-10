@@ -1,5 +1,6 @@
 import { areas, models, projects, research } from "../content/cv";
 import { openModel } from "../lib/modelStore";
+import { Icon } from "../ui/Icon";
 
 const W = 320, H = 180;
 
@@ -102,13 +103,12 @@ export function Research() {
       <div className="wrap">
         <div className="sec-top">
           <div>
-            <p className="kicker">{research.label}</p>
             <h2 className="section-title" id="research-title">{research.title}</h2>
           </div>
           <p className="section-intro">{research.intro}</p>
         </div>
         <ul className="rcards">
-          {research.cards.map((c) => {
+          {research.cards.map((c, i) => {
             const Chart = CHARTS[c.kind];
             return (
               <li key={c.kind}>
@@ -119,10 +119,10 @@ export function Research() {
                   <p className="rsub">{c.sub}</p>
                   <h3>{c.title}</h3>
                   <p className="rbody">{c.body}</p>
-                  <p className="rsrc">{c.source}</p>
+                  <p className="rsrc">Fig. {i + 1}. {c.source}</p>
                   {c.model
-                    ? <button type="button" className="rcta" onClick={() => openModel(c.model)}>{c.cta} <span aria-hidden="true">→</span></button>
-                    : <a className="rcta" href="#projects">{c.cta} <span aria-hidden="true">→</span></a>}
+                    ? <button type="button" className="rcta" onClick={() => openModel(c.model)}>{c.cta} <Icon name="arrow-right" /></button>
+                    : <a className="rcta" href="#projects">{c.cta} <Icon name="arrow-right" /></a>}
                 </article>
               </li>
             );

@@ -71,7 +71,6 @@ export function Projects() {
       <div className="wrap">
         <div className="sec-top">
           <div>
-            <p className="kicker">{deals.label}</p>
             <h2 className="section-title" id="projects-title">{deals.title}</h2>
           </div>
           <p className="section-intro">{deals.intro}</p>

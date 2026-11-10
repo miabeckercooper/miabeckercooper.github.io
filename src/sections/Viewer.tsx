@@ -4,6 +4,7 @@ import { deals, GITHUB_PROJECTS, projects } from "../content/cv";
 import { thumbSrc } from "../lib/shots";
 import { Shot } from "../ui/Shot";
 import { TextOrTodo } from "../ui/TextOrTodo";
+import { Icon } from "../ui/Icon";
 
 /** Modal viewer: pages through a project's screenshots, with figures, team, role and the GitHub link. */
 export default function Viewer({ index, onClose }: { index: number; onClose: () => void }) {
@@ -50,14 +51,13 @@ export default function Viewer({ index, onClose }: { index: number; onClose: () 
     <div className="viewer" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div className="vbox" ref={boxRef} role="dialog" aria-modal="true" aria-labelledby="v-title">
         <div className="vinfo">
-          <button ref={closeRef} type="button" className="vclose" onClick={onClose} aria-label="Close project">✕</button>
-          <p className="kicker">[{p.badge}] · {p.date}</p>
+          <button ref={closeRef} type="button" className="vclose" onClick={onClose} aria-label="Close project"><Icon name="close" size={20} /></button>
           <h2 id="v-title">{p.title}</h2>
-          <p className="muted" style={{ color: "var(--ink-2)" }}>{p.course}</p>
+          <p className="vmeta-line"><span className="badge-t">[{p.badge}]</span> {p.course} · {p.date}</p>
           {p.simulated && <span className="sim-tag">Simulated results</span>}
-          <p className="vsec">Key thesis</p>
+          <h3 className="vsec">Key thesis</h3>
           <p>{p.summary}</p>
-          <p className="vsec">Inputs and results</p>
+          <h3 className="vsec">Inputs and results</h3>
           <dl className="vfigs">
             {[p.hero, ...p.figures].map((f) => (
               <div key={f.value + f.label}>
@@ -72,10 +72,10 @@ export default function Viewer({ index, onClose }: { index: number; onClose: () 
             {p.note && <div><dt>Note</dt><dd>{p.note}</dd></div>}
           </dl>
           <div className="vlinks">
-            {deckUrl && <a className="btn solid" href={deckUrl} target="_blank" rel="noopener">Open the full PDF <span aria-hidden="true">↗</span></a>}
-            <a className="btn" href={GITHUB_PROJECTS + p.dir} target="_blank" rel="noopener">{deals.github} <span aria-hidden="true">↗</span></a>
+            {deckUrl && <a className="btn solid" href={deckUrl} target="_blank" rel="noopener">Open the full PDF <Icon name="external" /></a>}
+            <a className="btn" href={GITHUB_PROJECTS + p.dir} target="_blank" rel="noopener">{deals.github} <Icon name="external" /></a>
           </div>
-          <p className="vsec">The work, page by page</p>
+          <h3 className="vsec">The work, page by page</h3>
         </div>
         <div className="vstage">
           <div
@@ -91,9 +91,9 @@ export default function Viewer({ index, onClose }: { index: number; onClose: () 
             <Shot key={p.shots[page]} name={p.shots[page]} alt={`${p.title}, page ${page + 1} of ${n}`} sizes="(max-width: 760px) 100vw, 700px" eager />
           </div>
           <div className="vnav">
-            <button type="button" onClick={() => go(-1)} disabled={n < 2}><span aria-hidden="true">←</span> Previous page</button>
+            <button type="button" onClick={() => go(-1)} disabled={n < 2}><Icon name="arrow-left" /> Previous page</button>
             <span aria-live="polite">{page + 1} / {n}</span>
-            <button type="button" onClick={() => go(1)} disabled={n < 2}>Next page <span aria-hidden="true">→</span></button>
+            <button type="button" onClick={() => go(1)} disabled={n < 2}>Next page <Icon name="arrow-right" /></button>
           </div>
           {n > 1 && (
             <ul className="vthumbs">

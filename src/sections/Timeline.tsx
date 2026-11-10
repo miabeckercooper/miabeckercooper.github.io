@@ -4,6 +4,7 @@ import type { Chapter, Moment } from "../content/types";
 import { viewerStore } from "../lib/viewerStore";
 import { Photo } from "../ui/Photo";
 import { Gantt } from "./Gantt";
+import { Icon } from "../ui/Icon";
 
 function MomentCard({ m }: { m: Moment }) {
   const inner = (
@@ -20,7 +21,7 @@ function MomentCard({ m }: { m: Moment }) {
       <article className="moment thesis" aria-label={`MSc thesis: ${thesis.title}`}>
         {inner}
         <p>{thesis.access}</p>
-        <a className="open" href={identity.linkedin} target="_blank" rel="noopener">{thesis.request} <span aria-hidden="true">→</span></a>
+        <a className="open" href={identity.linkedin} target="_blank" rel="noopener">{thesis.request} <Icon name="arrow-right" /></a>
       </article>
     );
   }
@@ -29,7 +30,7 @@ function MomentCard({ m }: { m: Moment }) {
     return (
       <button type="button" className="moment" aria-haspopup="dialog" onClick={() => viewerStore.open(i)}>
         {inner}
-        <span className="open">See the work <span aria-hidden="true">→</span></span>
+        <span className="open">See the work <Icon name="arrow-right" /></span>
       </button>
     );
   }
@@ -62,8 +63,8 @@ function ChapterBlock({ c, hidden }: { c: Chapter; hidden: boolean }) {
         <div>
           <p className="summary">{c.summary}</p>
           <div className="strip-nav">
-            <button type="button" onClick={() => page(-1)} disabled={edge.start} aria-label={`Scroll ${c.place} back`}>←</button>
-            <button type="button" onClick={() => page(1)} disabled={edge.end} aria-label={`Scroll ${c.place} forward`}>→</button>
+            <button type="button" onClick={() => page(-1)} disabled={edge.start} aria-label={`Scroll ${c.place} back`}><Icon name="arrow-left" size={18} /></button>
+            <button type="button" onClick={() => page(1)} disabled={edge.end} aria-label={`Scroll ${c.place} forward`}><Icon name="arrow-right" size={18} /></button>
           </div>
         </div>
       </div>
@@ -101,7 +102,6 @@ export function Timeline() {
   return (
     <div id="timeline">
       <div className="wrap timeline-head" style={{ paddingBottom: 8 }}>
-        <p className="kicker">{timeline.label}</p>
         <h2 className="section-title">{timeline.title}</h2>
         <p className="section-intro">{timeline.intro}</p>
         <Gantt onSelect={(id) => select(id)} />

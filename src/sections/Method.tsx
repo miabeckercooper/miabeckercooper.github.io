@@ -7,7 +7,6 @@ export function Method() {
       <div className="wrap">
         <div className="sec-top">
           <div>
-            <p className="kicker">{method.label}</p>
             <h2 className="section-title" id="method-title">{method.title}</h2>
           </div>
           <p className="section-intro">{method.intro}</p>

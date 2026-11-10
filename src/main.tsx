@@ -4,7 +4,7 @@ import "@fontsource-variable/geist/index.css";
 import "@fontsource-variable/jetbrains-mono/index.css";
 import "./styles/tokens.css";
 import "./styles/base.css";
-import "./styles/terminal.css";
+import "./styles/light.css";
 import { App } from "./App";
 import { startAnalytics } from "./lib/analytics";
 

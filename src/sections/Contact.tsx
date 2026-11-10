@@ -6,8 +6,8 @@ export function Contact() {
     <>
       <section className="contact" id="contact" aria-labelledby="contact-title">
         <div className="wrap">
-          <p className="targets">{C.label}</p>
           <h2 id="contact-title">Let's <em>talk.</em></h2>
+          <p className="targets">{C.label}</p>
           <p>{C.body}</p>
           <div className="btns">
             <a className="btn solid" href={identity.linkedin} target="_blank" rel="noopener">{C.linkedin}</a>

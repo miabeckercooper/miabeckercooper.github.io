@@ -1,15 +1,11 @@
 import { about, leadership as L } from "../content/cv";
-import { HobbyIcon } from "../ui/HobbyIcon";
 import { Photo } from "../ui/Photo";
 
-/** Bar length for each language level (a visual scale, not a test score). */
-const LEVEL: Record<string, number> = { Native: 100, Fluent: 85, Intermediate: 55, Learning: 25 };
 
 export function About() {
   return (
     <section className="block about" id="about" aria-labelledby="about-title">
       <div className="wrap">
-        <p className="kicker">{about.label}</p>
         <h2 className="section-title" id="about-title">{about.title}</h2>
         <div className="about-grid">
           <div className="about-photo">
@@ -20,7 +16,6 @@ export function About() {
             <ul className="hobbies">
               {about.hobbies.map((h) => (
                 <li key={h.title}>
-                  <span className="ico"><HobbyIcon name={h.icon} /></span>
                   <h3>{h.title}</h3>
                   <p>{h.body}</p>
                 </li>
@@ -47,7 +42,6 @@ export function About() {
               {about.languages.map((l) => (
                 <div key={l.name}>
                   <dt>{l.name}</dt>
-                  <span className="meter" aria-hidden="true"><i style={{ width: `${LEVEL[l.level] ?? 20}%` }} /></span>
                   <dd>{l.level}</dd>
                 </div>
               ))}

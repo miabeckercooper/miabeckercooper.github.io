@@ -1,40 +1,43 @@
 /*
- * Layout: an institutional terminal. Obsidian background, glass surfaces with 1px slate borders, crisp white
- * headings, slate body text, Bloomberg amber for live figures and quant green for status and gains.
- * A deliberate single dark look (no light theme), so every colour is set here once.
+ * Layout: a light research report. White pages and lavender-grey surfaces, navy ink, one violet accent;
+ * deep-violet bands for the process sheet, the market tape and the contact page. Light chosen for the use scene:
+ * recruiters reading on office laptops in daylight. A deliberate single theme, so every colour is set here once.
  */
 :root {
-  --paper: #080B10;
-  --paper-2: rgba(255, 255, 255, 0.03);
-  --surface-solid: #0D121B;
-  --ink: #F8FAFC;
-  --ink-2: #94A3B8;
-  --line: #1E293B;
-  --line-2: #334155;
-  --tint: #0C1220;
-  --accent: #FF9F0A;
-  --accent-fill: #FF9F0A;
-  --on-accent: #080B10;
-  --focus: #FF9F0A;
-  --glow: 0 0 0 1px rgba(255, 159, 10, 0.55), 0 0 24px -4px rgba(255, 159, 10, 0.35);
+  --paper: #FFFFFF;
+  --paper-2: #F6F5FB;
+  --surface-solid: #FFFFFF;
+  --ink: #12142B;
+  --ink-2: #4D5170;
+  --line: #E3E1EE;
+  --line-2: #CFCBE3;
+  --tint: #F1EEFB;
+  --accent: #5B3FD0;
+  --accent-fill: #5B3FD0;
+  --on-accent: #FFFFFF;
+  --focus: #5B3FD0;
+  --shadow: 0 12px 28px -16px rgba(18, 20, 43, 0.35), 0 2px 6px -2px rgba(18, 20, 43, 0.08);
 
-  --navy: #05070B;
-  --navy-2: #1E293B;
-  --on-navy: #F8FAFC;
-  --on-navy-2: #94A3B8;
-  --lilac: #FF9F0A;
+  /* Deep-violet bands (method, ticker, contact) */
+  --navy: #1C1640;
+  --navy-2: #2E2760;
+  --on-navy: #F4F1FF;
+  --on-navy-2: #C9C1EE;
+  --lilac: #C4B5FD;
 
-  --steel: #60A5FA;
-  --violet: #A78BFA;
-  --green: #10B981;
-  --ember: #FF9F0A;
+  /* Chapter accents: thin marks and chart bars */
+  --steel: #2F5D9B;
+  --violet: #5B3FD0;
+  --green: #0E7A4F;
+  --ember: #B4500E;
 
-  --sheet: #0D121B;
+  /* Names the live-model charts read */
+  --sheet: #FFFFFF;
   --rule: var(--line);
-  --grid: rgba(148, 163, 184, 0.06);
-  --brass: #FF9F0A;
-  --gain: #10B981;
-  --loss: #F87171;
+  --grid: rgba(91, 63, 208, 0.05);
+  --brass: #8A5A00;
+  --gain: #0E7A4F;
+  --loss: #C2341C;
 
   --display: "Geist Variable", "Geist", "SF Pro Display", -apple-system, "Helvetica Neue", Arial, sans-serif;
   --body: "Geist Variable", "Geist", "SF Pro Text", -apple-system, "Helvetica Neue", Arial, sans-serif;
@@ -43,5 +46,5 @@
   --radius: 14px;
   --radius-sm: 10px;
   --header-h: 60px;
-  color-scheme: dark;
+  color-scheme: light;
 }

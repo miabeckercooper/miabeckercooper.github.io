@@ -6,7 +6,6 @@ export function Leadership() {
   return (
     <section className="block leadership" id="leadership" aria-labelledby="lead-title">
       <div className="wrap">
-        <p className="kicker">{L.label}</p>
         <h2 className="section-title" id="lead-title">{L.title}</h2>
         <div className="lead-grid">
           <figure>
